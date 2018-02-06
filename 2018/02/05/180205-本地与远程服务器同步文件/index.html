@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="共享文件,服务器," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="本地与远程服务器同步文件（scp、rsync、samba，and …）最近在进行深度学习训练的时候，遇到一个问题：服务器端的系统一般是没有GUI界面的，这导致在深度学习训练中，要查看网络的训练效果，不得不将图片从服务器端传输到本地进行查看。（网络的好坏也可以通过mIOU、AP等指标来评判，不过可视化能看到更多细节方面的问题）。 下文总结了本地与远程服务器同步文件的几个解决方案。 方案1: scp命">
+<meta name="description" content="最近在进行深度学习训练的时候，遇到一个问题：服务器端的系统一般是没有GUI界面的，这导致在深度学习训练中，要查看网络的训练效果，不得不将图片从服务器端传输到本地进行查看。（网络的好坏也可以通过mIOU、AP等指标来评判，不过可视化能看到更多细节方面的问题）。 下文总结了本地与远程服务器同步文件的几个解决方案。 方案1: scp命令 scp是secure copy的简写，用于在Linux下进行远程拷">
+<meta name="keywords" content="共享文件,服务器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本地与远程服务器同步文件（scp、rsync、samba，and ...）">
-<meta property="og:url" content="http://yoursite.com/2018/02/05/rsync/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/02/05/180205-本地与远程服务器同步文件/index.html">
 <meta property="og:site_name" content="静坐听雨">
-<meta property="og:description" content="本地与远程服务器同步文件（scp、rsync、samba，and …）最近在进行深度学习训练的时候，遇到一个问题：服务器端的系统一般是没有GUI界面的，这导致在深度学习训练中，要查看网络的训练效果，不得不将图片从服务器端传输到本地进行查看。（网络的好坏也可以通过mIOU、AP等指标来评判，不过可视化能看到更多细节方面的问题）。 下文总结了本地与远程服务器同步文件的几个解决方案。 方案1: scp命">
+<meta property="og:description" content="最近在进行深度学习训练的时候，遇到一个问题：服务器端的系统一般是没有GUI界面的，这导致在深度学习训练中，要查看网络的训练效果，不得不将图片从服务器端传输到本地进行查看。（网络的好坏也可以通过mIOU、AP等指标来评判，不过可视化能看到更多细节方面的问题）。 下文总结了本地与远程服务器同步文件的几个解决方案。 方案1: scp命令 scp是secure copy的简写，用于在Linux下进行远程拷">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-05T15:12:03.387Z">
+<meta property="og:updated_time" content="2018-02-06T01:59:42.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地与远程服务器同步文件（scp、rsync、samba，and ...）">
-<meta name="twitter:description" content="本地与远程服务器同步文件（scp、rsync、samba，and …）最近在进行深度学习训练的时候，遇到一个问题：服务器端的系统一般是没有GUI界面的，这导致在深度学习训练中，要查看网络的训练效果，不得不将图片从服务器端传输到本地进行查看。（网络的好坏也可以通过mIOU、AP等指标来评判，不过可视化能看到更多细节方面的问题）。 下文总结了本地与远程服务器同步文件的几个解决方案。 方案1: scp命">
+<meta name="twitter:description" content="最近在进行深度学习训练的时候，遇到一个问题：服务器端的系统一般是没有GUI界面的，这导致在深度学习训练中，要查看网络的训练效果，不得不将图片从服务器端传输到本地进行查看。（网络的好坏也可以通过mIOU、AP等指标来评判，不过可视化能看到更多细节方面的问题）。 下文总结了本地与远程服务器同步文件的几个解决方案。 方案1: scp命令 scp是secure copy的简写，用于在Linux下进行远程拷">
 
 
 
@@ -119,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/05/rsync/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/05/180205-本地与远程服务器同步文件/"/>
 
 
 
@@ -232,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/05/rsync/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/05/180205-本地与远程服务器同步文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -272,6 +273,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -299,9 +322,9 @@
       
 
       
-        <h2 id="本地与远程服务器同步文件（scp、rsync、samba，and-…）"><a href="#本地与远程服务器同步文件（scp、rsync、samba，and-…）" class="headerlink" title="本地与远程服务器同步文件（scp、rsync、samba，and …）"></a>本地与远程服务器同步文件（scp、rsync、samba，and …）</h2><p>最近在进行深度学习训练的时候，遇到一个问题：服务器端的系统一般是没有GUI界面的，这导致在深度学习训练中，要查看网络的训练效果，不得不将图片从服务器端传输到本地进行查看。（网络的好坏也可以通过mIOU、AP等指标来评判，不过可视化能看到更多细节方面的问题）。</p>
+        <p>最近在进行深度学习训练的时候，遇到一个问题：服务器端的系统一般是没有GUI界面的，这导致在深度学习训练中，要查看网络的训练效果，不得不将图片从服务器端传输到本地进行查看。（网络的好坏也可以通过mIOU、AP等指标来评判，不过可视化能看到更多细节方面的问题）。</p>
 <p>下文总结了本地与远程服务器同步文件的几个解决方案。</p>
-<h4 id="方案1-scp命令"><a href="#方案1-scp命令" class="headerlink" title="方案1: scp命令"></a>方案1: scp命令</h4><blockquote>
+<h2 id="方案1-scp命令"><a href="#方案1-scp命令" class="headerlink" title="方案1: scp命令"></a>方案1: scp命令</h2><blockquote>
 <p>scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。可能会稍微影响一下速度。当你服务器硬盘变为只读 read only system时，用scp可以帮你把文件移出来。另外，scp还非常不占资源，不会提高多少系统负荷，在这一点上，rsync就远远不及它了。虽然 rsync比scp会快一点，但当小文件众多的情况下，rsync会导致硬盘I/O非常高，而scp基本不影响系统正常使用。<a href="http://www.cnblogs.com/peida/archive/2013/03/15/2960802.html" target="_blank" rel="noopener">[链接]</a></p>
 </blockquote>
 <ol>
@@ -318,7 +341,7 @@
 </li>
 </ol>
 <p>​    采用scp命令自动化程度不高，用起来麻烦，传送速度也比较慢。</p>
-<h4 id="方案2-rsync命令"><a href="#方案2-rsync命令" class="headerlink" title="方案2: rsync命令"></a>方案2: rsync命令</h4><blockquote>
+<h2 id="方案2-rsync命令"><a href="#方案2-rsync命令" class="headerlink" title="方案2: rsync命令"></a>方案2: rsync命令</h2><blockquote>
 <p><strong>rsync命令</strong>是一个远程数据同步工具，可通过LAN/WAN快速同步多台主机间的文件。rsync使用所谓的“rsync”算法来使本地和远程两个主机之间的文件达到同步，这个算法只传送两个文件的不同部分，而不是每次都整份传送，因此速度相当快。rsync是一个功能非常强大的工具，其命令也有很多功能特色选项。<a href="http://www.fredshack.com/docs/rsync.html" target="_blank" rel="noopener">链接</a> </p>
 </blockquote>
 <ol>
@@ -335,8 +358,8 @@
 <p>​</p>
 </li>
 </ol>
-<h4 id="方案3-samba"><a href="#方案3-samba" class="headerlink" title="方案3. samba"></a>方案3. samba</h4><p>听老大说，samba用来做共享文件夹相当好用，网上找了一圈教程，都是Linux与windows之间的共享，并没有Linux系统之间的共享。按道理来说，应该也能配置成Linux之间的，以后有时间再折腾。</p>
-<h4 id="方案4-思考"><a href="#方案4-思考" class="headerlink" title="方案4. 思考"></a>方案4. 思考</h4><p>想想自己写一个共享文件的脚本，也不是很难的。在本地与服务器端各设立一个文件夹用来做共享文件夹，其实本质上是同步两个文件夹间的文件。如何做到同步呢？需要考虑到文件的几个常用的操作——复制、删除、修改、移动。为这两个文件夹各自建立一个文件索引（子目录不需要建立），将每个文件的的操作都记录在这个文件中，根据这两个文件进行文件同步。</p>
+<h2 id="方案3-samba"><a href="#方案3-samba" class="headerlink" title="方案3. samba"></a>方案3. samba</h2><p>听老大说，samba用来做共享文件夹相当好用，网上找了一圈教程，都是Linux与windows之间的共享，并没有Linux系统之间的共享。按道理来说，应该也能配置成Linux之间的，以后有时间再折腾。</p>
+<h2 id="方案4-思考"><a href="#方案4-思考" class="headerlink" title="方案4. 思考"></a>方案4. 思考</h2><p>想想自己写一个共享文件的脚本，也不是很难的。在本地与服务器端各设立一个文件夹用来做共享文件夹，其实本质上是同步两个文件夹间的文件。如何做到同步呢？需要考虑到文件的几个常用的操作——复制、删除、修改、移动。为这两个文件夹各自建立一个文件索引（子目录不需要建立），将每个文件的的操作都记录在这个文件中，根据这两个文件进行文件同步。</p>
 
       
     </div>
@@ -352,6 +375,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/共享文件/" rel="tag"># 共享文件</a>
+          
+            <a href="/tags/服务器/" rel="tag"># 服务器</a>
+          
+        </div>
+      
 
       
       
@@ -361,15 +392,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/24/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/06/180124-hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -457,7 +488,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
@@ -503,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地与远程服务器同步文件（scp、rsync、samba，and-…）"><span class="nav-number">1.</span> <span class="nav-text">本地与远程服务器同步文件（scp、rsync、samba，and …）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案1-scp命令"><span class="nav-number">1.0.1.</span> <span class="nav-text">方案1: scp命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案2-rsync命令"><span class="nav-number">1.0.2.</span> <span class="nav-text">方案2: rsync命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案3-samba"><span class="nav-number">1.0.3.</span> <span class="nav-text">方案3. samba</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案4-思考"><span class="nav-number">1.0.4.</span> <span class="nav-text">方案4. 思考</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案1-scp命令"><span class="nav-number">1.</span> <span class="nav-text">方案1: scp命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案2-rsync命令"><span class="nav-number">2.</span> <span class="nav-text">方案2: rsync命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案3-samba"><span class="nav-number">3.</span> <span class="nav-text">方案3. samba</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案4-思考"><span class="nav-number">4.</span> <span class="nav-text">方案4. 思考</span></a></li></ol></div>
             
 
           </div>
