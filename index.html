@@ -232,6 +232,141 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/180417pytorch网络可视化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/17/180417pytorch网络可视化/" itemprop="url">180417pytorch网络可视化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-17T00:35:27+08:00">
+                2018-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>找到一个可以方便实现pytorch网络可视化的资源，十分方便。<a href="https://github.com/szagoruyko/pytorchviz" target="_blank" rel="noopener">github地址</a></p>
+<p>使用方法如下：</p>
+<ol>
+<li><p>Install graphviz:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install graphviz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>torchviz工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"># dot.py</span><br><span class="line">from graphviz import Digraph</span><br><span class="line">import torch</span><br><span class="line">from torch.autograd import Variable</span><br><span class="line">from collections import namedtuple</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Node = namedtuple(&apos;Node&apos;, (&apos;name&apos;, &apos;inputs&apos;, &apos;attr&apos;, &apos;op&apos;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def make_dot(var, params=None):</span><br><span class="line">    &quot;&quot;&quot; Produces Graphviz representation of PyTorch autograd graph.</span><br><span class="line"></span><br><span class="line">    Blue nodes are the Variables that require grad, orange are Tensors</span><br><span class="line">    saved for backward in torch.autograd.Function</span><br><span class="line"></span><br><span class="line">    Args:</span><br><span class="line">        var: output Variable</span><br><span class="line">        params: dict of (name, Variable) to add names to node that</span><br><span class="line">            require grad (TODO: make optional)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    if params is not None:</span><br><span class="line">        assert all(isinstance(p, Variable) for p in params.values())</span><br><span class="line">        param_map = &#123;id(v): k for k, v in params.items()&#125;</span><br><span class="line"></span><br><span class="line">    node_attr = dict(style=&apos;filled&apos;,</span><br><span class="line">                     shape=&apos;box&apos;,</span><br><span class="line">                     align=&apos;left&apos;,</span><br><span class="line">                     fontsize=&apos;12&apos;,</span><br><span class="line">                     ranksep=&apos;0.1&apos;,</span><br><span class="line">                     height=&apos;0.2&apos;)</span><br><span class="line">    dot = Digraph(node_attr=node_attr, graph_attr=dict(size=&quot;12,12&quot;))</span><br><span class="line">    seen = set()</span><br><span class="line"></span><br><span class="line">    def size_to_str(size):</span><br><span class="line">        return &apos;(&apos; + (&apos;, &apos;).join([&apos;%d&apos; % v for v in size]) + &apos;)&apos;</span><br><span class="line"></span><br><span class="line">    def add_nodes(var):</span><br><span class="line">        if var not in seen:</span><br><span class="line">            if torch.is_tensor(var):</span><br><span class="line">                dot.node(str(id(var)), size_to_str(var.size()), fillcolor=&apos;orange&apos;)</span><br><span class="line">            elif hasattr(var, &apos;variable&apos;):</span><br><span class="line">                u = var.variable</span><br><span class="line">                name = param_map[id(u)] if params is not None else &apos;&apos;</span><br><span class="line">                node_name = &apos;%s\n %s&apos; % (name, size_to_str(u.size()))</span><br><span class="line">                dot.node(str(id(var)), node_name, fillcolor=&apos;lightblue&apos;)</span><br><span class="line">            else:</span><br><span class="line">                dot.node(str(id(var)), str(type(var).__name__))</span><br><span class="line">            seen.add(var)</span><br><span class="line">            if hasattr(var, &apos;next_functions&apos;):</span><br><span class="line">                for u in var.next_functions:</span><br><span class="line">                    if u[0] is not None:</span><br><span class="line">                        dot.edge(str(id(u[0])), str(id(var)))</span><br><span class="line">                        add_nodes(u[0])</span><br><span class="line">            if hasattr(var, &apos;saved_tensors&apos;):</span><br><span class="line">                for t in var.saved_tensors:</span><br><span class="line">                    dot.edge(str(id(t)), str(id(var)))</span><br><span class="line">                    add_nodes(t)</span><br><span class="line">    add_nodes(var.grad_fn)</span><br><span class="line">    return dot</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># For traces</span><br><span class="line"></span><br><span class="line">def replace(name, scope):</span><br><span class="line">    return &apos;/&apos;.join([scope[name], name])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def parse(graph):</span><br><span class="line">    scope = &#123;&#125;</span><br><span class="line">    for n in graph.nodes():</span><br><span class="line">        inputs = [i.uniqueName() for i in n.inputs()]</span><br><span class="line">        for i in range(1, len(inputs)):</span><br><span class="line">            scope[inputs[i]] = n.scopeName()</span><br><span class="line"></span><br><span class="line">        uname = next(n.outputs()).uniqueName()</span><br><span class="line">        assert n.scopeName() != &apos;&apos;, &apos;&#123;&#125; has empty scope name&apos;.format(n)</span><br><span class="line">        scope[uname] = n.scopeName()</span><br><span class="line">    scope[&apos;0&apos;] = &apos;input&apos;</span><br><span class="line"></span><br><span class="line">    nodes = []</span><br><span class="line">    for n in graph.nodes():</span><br><span class="line">        attrs = &#123;k: n[k] for k in n.attributeNames()&#125;</span><br><span class="line">        attrs = str(attrs).replace(&quot;&apos;&quot;, &apos; &apos;)</span><br><span class="line">        inputs = [replace(i.uniqueName(), scope) for i in n.inputs()]</span><br><span class="line">        uname = next(n.outputs()).uniqueName()</span><br><span class="line">        nodes.append(Node(**&#123;&apos;name&apos;: replace(uname, scope),</span><br><span class="line">                             &apos;op&apos;: n.kind(),</span><br><span class="line">                             &apos;inputs&apos;: inputs,</span><br><span class="line">                             &apos;attr&apos;: attrs&#125;))</span><br><span class="line"></span><br><span class="line">    for n in graph.inputs():</span><br><span class="line">        uname = n.uniqueName()</span><br><span class="line">        if uname not in scope.keys():</span><br><span class="line">            scope[uname] = &apos;unused&apos;</span><br><span class="line">        nodes.append(Node(**&#123;&apos;name&apos;: replace(uname, scope),</span><br><span class="line">                             &apos;op&apos;: &apos;Parameter&apos;,</span><br><span class="line">                             &apos;inputs&apos;: [],</span><br><span class="line">                             &apos;attr&apos;: str(n.type())&#125;))</span><br><span class="line"></span><br><span class="line">    return nodes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def make_dot_from_trace(trace):</span><br><span class="line">    &quot;&quot;&quot; Produces graphs of torch.jit.trace outputs</span><br><span class="line"></span><br><span class="line">    Example:</span><br><span class="line">    &gt;&gt;&gt; trace, = torch.jit.trace(model, args=(x,))</span><br><span class="line">    &gt;&gt;&gt; dot = make_dot_from_trace(trace)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    torch.onnx._optimize_trace(trace, False)</span><br><span class="line">    graph = trace.graph()</span><br><span class="line">    list_of_nodes = parse(graph)</span><br><span class="line"></span><br><span class="line">    node_attr = dict(style=&apos;filled&apos;,</span><br><span class="line">                     shape=&apos;box&apos;,</span><br><span class="line">                     align=&apos;left&apos;,</span><br><span class="line">                     fontsize=&apos;12&apos;,</span><br><span class="line">                     ranksep=&apos;0.1&apos;,</span><br><span class="line">                     height=&apos;0.2&apos;)</span><br><span class="line"></span><br><span class="line">    dot = Digraph(node_attr=node_attr, graph_attr=dict(size=&quot;12,12&quot;))</span><br><span class="line"></span><br><span class="line">    for node in list_of_nodes:</span><br><span class="line">        dot.node(node.name, label=node.name.replace(&apos;/&apos;, &apos;\n&apos;))</span><br><span class="line">        if node.inputs:</span><br><span class="line">            for inp in node.inputs:</span><br><span class="line">                dot.edge(inp, node.name)</span><br><span class="line">    return dot</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>demo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">from torch.autograd import Variable</span><br><span class="line">import torchvision</span><br><span class="line">import torch.nn as nn</span><br><span class="line"></span><br><span class="line">from dot import make_dot, make_dot_from_trace</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">model = nn.Sequential()</span><br><span class="line">model.add_module(&apos;W0&apos;, nn.Linear(8, 16))</span><br><span class="line">model.add_module(&apos;tanh&apos;, nn.Tanh())</span><br><span class="line">model.add_module(&apos;W1&apos;, nn.Linear(16, 1))</span><br><span class="line"></span><br><span class="line">x = Variable(torch.randn(1,8))</span><br><span class="line">y = model(x)</span><br><span class="line"></span><br><span class="line">dot = make_dot(y.mean(), params=dict(model.named_parameters()))</span><br><span class="line">dot.render(&quot;graph.gv&quot;, view=True)</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">model = torchvision.models.resnet18(pretrained=False)</span><br><span class="line">model.fc = nn.Linear(model.fc.in_features, 100)</span><br><span class="line">x = Variable(torch.randn(10,3,224,224))</span><br><span class="line">y = model(x)</span><br><span class="line">dot = make_dot(y.mean(), params=dict(model.named_parameters()))</span><br><span class="line">dot.render(&quot;resnet18.gv&quot;, view=True)</span><br></pre></td></tr></table></figure>
+<p>插图：</p>
+<p>​</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/180416远程访问tensorboard和visdom/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1549,7 +1684,7 @@ name=None
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
