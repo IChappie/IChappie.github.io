@@ -326,8 +326,7 @@
         
           
             <p><strong>tensorboard</strong> 和<strong>visdom</strong>是功能强大的两款可视化工具，极大地方便了深度学习的训练。在<strong>服务器</strong>端训练深度学习网络的时候，我们往往需要在<strong>本地端</strong>查看网络的训练情况。下面介绍下如何远程访问可视化工具。</p>
-<p>####远程访问tensorboard</p>
-<ol>
+<h4 id="远程访问tensorboard"><a href="#远程访问tensorboard" class="headerlink" title="远程访问tensorboard"></a>远程访问tensorboard</h4><ol>
 <li><p>使用如下命令<strong>登录服务器</strong>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 16006:127.0.0.1:6006 account@server.address</span><br><span class="line"># 表示将本地的16006端口，绑定服务器的6006端口。tensorboard默认将数据放在6006端口。ssh链接建立后，服务器6006端口接收到的数据会转发到本地16006端口。当然，也可以选择16006以外的端口建立ssh链接。</span><br></pre></td></tr></table></figure>
 </li>
@@ -337,8 +336,7 @@
 <li><p>最后，<strong>本地</strong>访问地址: <a href="http://127.0.0.1:16006/即可远程访问tensorboard" target="_blank" rel="noopener">http://127.0.0.1:16006/即可远程访问tensorboard</a>.</p>
 </li>
 </ol>
-<p>####远程访问visdom</p>
-<ol>
+<h4 id="远程访问visdom"><a href="#远程访问visdom" class="headerlink" title="远程访问visdom"></a>远程访问visdom</h4><ol>
 <li><p><strong>服务器端</strong>安装visdom</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install visdom</span><br></pre></td></tr></table></figure>
 </li>
