@@ -232,6 +232,201 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/leetcode_go/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/leetcode_go/" itemprop="url">leetcode 嘻唰唰</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T22:13:30+08:00">
+                2018-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="6-11"><a href="#6-11" class="headerlink" title="6.11"></a>6.11</h4><p>准备开始找工作，代码必不可少。想起毕业那会，刷了一阵子LeetCode，还花了不少大洋了，可是总是草草而终，没有认真理解每道题目的要义，为了刷而刷，实在没有任何长进啊～现在是时候认真总结过一遍了。</p>
+<ol>
+<li><p>Two Sum</p>
+<p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have <strong>exactly</strong> one solution, and you may not use the <em>same</em> element twice.</p>
+<p><strong>Example</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [2, 7, 11, 15], target = 9,</span><br><span class="line"></span><br><span class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</span><br><span class="line">return [0, 1].</span><br></pre></td></tr></table></figure>
+<p>我的思路：采用两个循环暴力寻找合适的组合方法，算法的时间复杂度为O(n^2)。代码如下，运行时间182ms，排在27.89%的位置，太慢。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        for(int i=0; i&lt;nums.size(); i++)&#123;</span><br><span class="line">            for(int j=i+1; j&lt;nums.size(); j++)&#123;</span><br><span class="line">                if(nums[i] + nums[j] == target)&#123;</span><br><span class="line">                    res.push_back(i);</span><br><span class="line">                    res.push_back(j);</span><br><span class="line">                    return res;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>网上看了一下其他人的解答。优化方法有两种，第一种是用哈希表，时间复杂度为O(n)， 同时空间复杂度也是O(n)；第二种方法是先对数组进行排序，然后使用夹逼的方法找出满足条件的组合。该算法的时间复杂度为O(nlogn+n)=O(nlogn)，空间复杂度取决于排序算法。</p>
+<p><strong>哈希表解法1</strong>如下（时间9ms，排在92.29%）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        unordered_map&lt;int, int&gt; m;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        for(int i=0; i&lt;nums.size();i++)&#123;</span><br><span class="line">            m[nums[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=0; i&lt;nums.size();i++)&#123;</span><br><span class="line">            int t = target - nums[i];</span><br><span class="line">            if (m.count(t) &amp;&amp; m[t] != i)&#123;</span><br><span class="line">                res.push_back(i);</span><br><span class="line">                res.push_back(m[t]);</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>哈希表解法2</strong>如下(时间10ms，排名70.97%)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        unordered_map&lt;int, int&gt; m;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        for(int i=0; i&lt;nums.size(); i++)&#123;</span><br><span class="line">            int t = target - nums[i];</span><br><span class="line">            if(m.count(t) &amp;&amp; m[t] != i)&#123;</span><br><span class="line">                res.push_back(i);</span><br><span class="line">                res.push_back(m[t]);</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            m[nums[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p><strong>先排序，再夹逼</strong>解法如下(7ms, 排名98.73%，效率非常快)</p>
+<p>将array排序，双指针left/right分别指向头尾。然后两个指针分别想中间移动寻找目标。</p>
+<p>(1) A[left] + A[right] = target：直接返回(left+1, right+1)。<br>(2) A[left] + A[right] &gt; target：说明A[right]不可能是解，right–<br>(3) A[left] + A[right] &lt; target：说明A[left]不可能是解，left++<br>中止条件：left &gt;= right</p>
+<p>但排序会打乱原来数组index的顺序。我们可以建立一个class/struct/pair来存储val/index，并overload operator &lt; 来以val值排序。这样我们可以track排序后每个数的原有index。</p>
+<p>重复元素这里无须特殊处理。index 1和index 2分别取找到的两个index的min/max即可。时间复杂度由于排序的关系为O(n log n)，额外空间复杂度O(n)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    class elem&#123;</span><br><span class="line">    public:</span><br><span class="line">        int val;</span><br><span class="line">        int index;</span><br><span class="line">        elem(int v, int i): val(v), index(i)&#123;&#125;</span><br><span class="line">        bool operator&lt;(const elem &amp;e) const &#123;</span><br><span class="line">            return val &lt;e.val;</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        vector&lt;int&gt; res(2, -1);</span><br><span class="line">        vector&lt;elem&gt; arr;</span><br><span class="line">        for(int i=0; i&lt;nums.size();i++)&#123; arr.push_back(elem(nums[i], i));&#125;</span><br><span class="line">        </span><br><span class="line">        sort(arr.begin(), arr.end());</span><br><span class="line">        int left = 0, right = arr.size()-1;</span><br><span class="line">        while(left &lt; right)&#123;</span><br><span class="line">            if(arr[left].val + arr[right].val == target)&#123;</span><br><span class="line">                res[0] = arr[left].index;</span><br><span class="line">                res[1] = arr[right].index;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(arr[left].val + arr[right].val&lt;target)</span><br><span class="line">                left++;</span><br><span class="line">            else</span><br><span class="line">                right--;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="6-13"><a href="#6-13" class="headerlink" title="6.13"></a>6.13</h4><ol>
+<li><p>Add Two Numbers</p>
+<p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong> and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p><strong>Example</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</span><br><span class="line">Output: 7 -&gt; 0 -&gt; 8</span><br><span class="line">Explanation: 342 + 465 = 807.</span><br></pre></td></tr></table></figure>
+<p>思路：同时遍历两个链表，将对应位相加，结果58ms，排名71.24%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        ListNode *dummy = new ListNode(0), *p = dummy;</span><br><span class="line">        int carry = 0;</span><br><span class="line">        while(l1 || l2 || carry)&#123;</span><br><span class="line">            if(l1)&#123;</span><br><span class="line">                carry+=l1-&gt;val;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            if(l2)&#123;</span><br><span class="line">                carry+=l2-&gt;val;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p-&gt;next = new ListNode(carry%10);</span><br><span class="line">            carry /= 10;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>看了一圈网上的题解，思路基本是这个套路。下面是leetcode官网最快的代码。（29ms)，实际运行40ms，而如果没有static const auto段的话，反而更慢，只有80ms。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">     ios::sync_with_stdio(false);</span><br><span class="line">     cin.tie(nullptr);</span><br><span class="line">     return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) &#123;  </span><br><span class="line">        ListNode* head = new ListNode(0);</span><br><span class="line">        ListNode* curr = head;</span><br><span class="line">        int cbit = 0;</span><br><span class="line">        int a = 0;</span><br><span class="line">        int b = 0;</span><br><span class="line">        while(l1||l2)</span><br><span class="line">        &#123;</span><br><span class="line">            int sum = ((l1)?(l1-&gt;val):(0)) + ((l2)?(l2-&gt;val):(0)) + cbit;</span><br><span class="line">            curr-&gt;next = new ListNode(sum%10);</span><br><span class="line">            cbit = sum/10;</span><br><span class="line">            if(l1) l1 = l1-&gt;next;</span><br><span class="line">            if(l2) l2 = l2-&gt;next;</span><br><span class="line">            curr = curr-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        if (cbit)  </span><br><span class="line">        &#123;</span><br><span class="line">            curr-&gt;next = new ListNode(cbit);    </span><br><span class="line">        &#125;</span><br><span class="line">        return head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>仔细观察，可以看到，该解法比第一种解法，少了进位的判断次数，但增加了l1和l2是否是Null的判断，因此算法写法上并不占便宜。我将蜜汁优化段加入到第一种解法中，显示运行时间40ms，排名99.08%！（另外，每次提交时，时间可能不同，这可能跟测试用例有关）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()&#123;ios::sync_with_stdio(false);cin.tie(nullptr);return nullptr;&#125;();</span><br></pre></td></tr></table></figure>
+<p>解释：</p>
+<p>sync_with_stdio函数：是一个“是否兼容studio”的开关，C++为了兼容C，保证程序在使用了std::print和std::cout的时候不发生混乱，将输出流绑到了一起。首先sync_with_stdio(false)是为了打断iostream输入输出到缓存，可以节约很多时间，使之与scanf相差无几</p>
+<p>tie是将两个stream绑定的函数，空参数的话返回当前的输出指针，即tie(0)与tie(nullptr)来解决cin与cout的绑定。</p>
+<ol>
+<li><p>Longest Substring Without Repeating Characters</p>
+<p>Given a string, find the length of the longest substring without repeating characters.</p>
+<p><strong>Examples</strong>:</p>
+<p>Given “abcabcbb”, the answer is “abc”, which the length is 3.</p>
+<p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
+<p>Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>res = 1</p>
+<p>left =1</p>
+<p>mark[‘a’] = 1</p>
+<p>i=1:</p>
+<p>​    mark[s[1]] =mark[‘b’]=0</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/180417pytorch网络可视化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1684,7 +1879,7 @@ name=None
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1695,7 +1890,7 @@ name=None
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -1706,7 +1901,7 @@ name=None
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
