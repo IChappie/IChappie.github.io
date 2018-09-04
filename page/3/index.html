@@ -237,7 +237,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -399,7 +399,7 @@ Res. Runtime: 4ms, Ranking 99.98%
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -530,7 +530,7 @@ Res. Runtime: 4ms, Ranking 99.98%
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -661,7 +661,7 @@ Res. Runtime: 4ms, Ranking 99.98%
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -810,170 +810,12 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/leetcode_go/3_Median_of_Two_Sorted_Arrays/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/13/leetcode_go/3_Median_of_Two_Sorted_Arrays/" itemprop="url">4. Median of Two Sorted Arrays (Hard)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T22:13:30+08:00">
-                2018-06-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>There are two sorted arrays **nums1** and **nums2** of size m and n respectively.
-
-Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
-
-**Example 1:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">The median is 2.0</span><br></pre></td></tr></table></figure>
-
-**Example 2:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line"></span><br><span class="line">The median is (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
-
-思路：同时对数组一和数组二进行遍历，数组一方向从左到右，数组二从右到左。时间40ms，排名98.62%
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">     ios::sync_with_stdio(false);</span><br><span class="line">     cin.tie(nullptr);</span><br><span class="line">     return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123;</span><br><span class="line">        int left1=0, left2=0, right1=nums1.size()-1, right2=nums2.size()-1;</span><br><span class="line">        if(right1==-1 &amp;&amp; right2==-1) return -1;</span><br><span class="line">        if(right1==-1)&#123;</span><br><span class="line">            if(nums2.size()%2 == 0) return (nums2[nums2.size()/2]+nums2[nums2.size()/2-1])/2.0;</span><br><span class="line">            else return nums2[nums2.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">         if(right2==-1)&#123;</span><br><span class="line">            if(nums1.size()%2 == 0) return (nums1[nums1.size()/2]+nums1[nums1.size()/2-1])/2.0;</span><br><span class="line">            else return nums1[nums1.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">        if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            </span><br><span class="line">            if(nums1[left1]&lt;nums2[left2]) left1 += 1;</span><br><span class="line">            else left2+=1;</span><br><span class="line">            if(nums1[right1]&gt;nums2[right2]) right1 -= 1;</span><br><span class="line">            else right2 -= 1;</span><br><span class="line">            </span><br><span class="line">            if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">            if(left1&gt;right1) &#123;</span><br><span class="line">                if((right2-left2)%2 == 0) return nums2[left2+(right2-left2)/2];</span><br><span class="line">                else return (nums2[left2+(right2-left2)/2]+nums2[left2+(right2-left2)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">            if(left2&gt;right2)&#123;</span><br><span class="line">                if((right1-left1)%2 == 0) return nums1[left1+(right1-left1)/2];</span><br><span class="line">                else return (nums1[left1+(right1-left1)/2]+nums1[left1+(right1-left1)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-​
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/leetcode_go/1_Add_Two_Numbers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1134,12 +976,170 @@ tie是将两个stream绑定的函数，空参数的话返回当前的输出指�
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/leetcode_go/3_Median_of_Two_Sorted_Arrays/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/13/leetcode_go/3_Median_of_Two_Sorted_Arrays/" itemprop="url">4. Median of Two Sorted Arrays (Hard)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T22:13:30+08:00">
+                2018-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>There are two sorted arrays **nums1** and **nums2** of size m and n respectively.
+
+Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+
+**Example 1:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">The median is 2.0</span><br></pre></td></tr></table></figure>
+
+**Example 2:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line"></span><br><span class="line">The median is (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
+
+思路：同时对数组一和数组二进行遍历，数组一方向从左到右，数组二从右到左。时间40ms，排名98.62%
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">     ios::sync_with_stdio(false);</span><br><span class="line">     cin.tie(nullptr);</span><br><span class="line">     return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123;</span><br><span class="line">        int left1=0, left2=0, right1=nums1.size()-1, right2=nums2.size()-1;</span><br><span class="line">        if(right1==-1 &amp;&amp; right2==-1) return -1;</span><br><span class="line">        if(right1==-1)&#123;</span><br><span class="line">            if(nums2.size()%2 == 0) return (nums2[nums2.size()/2]+nums2[nums2.size()/2-1])/2.0;</span><br><span class="line">            else return nums2[nums2.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">         if(right2==-1)&#123;</span><br><span class="line">            if(nums1.size()%2 == 0) return (nums1[nums1.size()/2]+nums1[nums1.size()/2-1])/2.0;</span><br><span class="line">            else return nums1[nums1.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">        if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            </span><br><span class="line">            if(nums1[left1]&lt;nums2[left2]) left1 += 1;</span><br><span class="line">            else left2+=1;</span><br><span class="line">            if(nums1[right1]&gt;nums2[right2]) right1 -= 1;</span><br><span class="line">            else right2 -= 1;</span><br><span class="line">            </span><br><span class="line">            if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">            if(left1&gt;right1) &#123;</span><br><span class="line">                if((right2-left2)%2 == 0) return nums2[left2+(right2-left2)/2];</span><br><span class="line">                else return (nums2[left2+(right2-left2)/2]+nums2[left2+(right2-left2)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">            if(left2&gt;right2)&#123;</span><br><span class="line">                if((right1-left1)%2 == 0) return nums1[left1+(right1-left1)/2];</span><br><span class="line">                else return (nums1[left1+(right1-left1)/2]+nums1[left1+(right1-left1)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+​
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/leetcode_go/0_Two_Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1299,7 +1299,7 @@ tie是将两个stream绑定的函数，空参数的话返回当前的输出指�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1434,7 +1434,7 @@ tie是将两个stream绑定的函数，空参数的话返回当前的输出指�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1607,7 +1607,7 @@ tie是将两个stream绑定的函数，空参数的话返回当前的输出指�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2081,7 +2081,7 @@ tie是将两个stream绑定的函数，空参数的话返回当前的输出指�
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="http://p69513dvb.bkt.clouddn.com/images/test.jpg"
+                src="/source/uploads/avatar.jpg"
                 alt="Elvin" />
             
               <p class="site-author-name" itemprop="name">Elvin</p>
