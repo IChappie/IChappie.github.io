@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/leetcode_go/6_Roman_to_Integer/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/leetcode_go/7_Longest_Common_Prefix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/04/leetcode_go/6_Roman_to_Integer/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/09/04/leetcode_go/7_Longest_Common_Prefix/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -304,30 +304,18 @@
         
           
             <ol>
-<li><p>Roman to Integer (Easy)</p>
-<p>Roman numerals are represented by seven different symbols: <code>I</code>, <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>, <code>D</code> and <code>M</code>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Symbol       Value</span><br><span class="line">I             1</span><br><span class="line">V             5</span><br><span class="line">X             10</span><br><span class="line">L             50</span><br><span class="line">C             100</span><br><span class="line">D             500</span><br><span class="line">M             1000</span><br></pre></td></tr></table></figure>
-<p>For example, two is written as <code>II</code> in Roman numeral, just two one’s added together. Twelve is written as, <code>XII</code>, which is simply <code>X</code> + <code>II</code>. The number twenty seven is written as <code>XXVII</code>, which is <code>XX</code> + <code>V</code> + <code>II</code>.</p>
-<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not <code>IIII</code>. Instead, the number four is written as <code>IV</code>. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as <code>IX</code>. There are six instances where subtraction is used:</p>
-<ul>
-<li><code>I</code> can be placed before <code>V</code> (5) and <code>X</code> (10) to make 4 and 9. </li>
-<li><code>X</code> can be placed before <code>L</code> (50) and <code>C</code> (100) to make 40 and 90. </li>
-<li><code>C</code> can be placed before <code>D</code> (500) and <code>M</code> (1000) to make 400 and 900.</li>
-</ul>
-<p>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
+<li><p>Longest Common Prefix</p>
+<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+<p>If there is no common prefix, return an empty string <code>&quot;&quot;</code>.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;III&quot;</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">Output: &quot;fl&quot;</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;IV&quot;</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;IX&quot;</span><br><span class="line">Output: 9</span><br></pre></td></tr></table></figure>
-<p><strong>Example 4:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;LVIII&quot;</span><br><span class="line">Output: 58</span><br><span class="line">Explanation: C = 100, L = 50, XXX = 30 and III = 3.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 5:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;MCMXCIV&quot;</span><br><span class="line">Output: 1994</span><br><span class="line">Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</span><br></pre></td></tr></table></figure>
-<p>思路：罗马数字与整数存在一一对应的关系，将这种关系存为字典，遍历相加即可。代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int romanToInt(string s) &#123;</span><br><span class="line">        std::map&lt;string, int&gt; mapRomanToNumber;</span><br><span class="line">        mapRomanToNumber[&quot;I&quot;] = 1;</span><br><span class="line">        mapRomanToNumber[&quot;V&quot;]= 5;</span><br><span class="line">        mapRomanToNumber[&quot;X&quot;] = 10;</span><br><span class="line">        mapRomanToNumber[&quot;L&quot;] = 50;</span><br><span class="line">        mapRomanToNumber[&quot;C&quot;] = 100;</span><br><span class="line">        mapRomanToNumber[&quot;D&quot;] = 500;</span><br><span class="line">        mapRomanToNumber[&quot;M&quot;] = 1000;</span><br><span class="line">        mapRomanToNumber[&quot;IV&quot;] = 4;</span><br><span class="line">        mapRomanToNumber[&quot;IX&quot;] = 9;</span><br><span class="line">        mapRomanToNumber[&quot;XL&quot;] = 40;</span><br><span class="line">        mapRomanToNumber[&quot;XC&quot;] = 90;</span><br><span class="line">        mapRomanToNumber[&quot;CD&quot;] = 400;</span><br><span class="line">        mapRomanToNumber[&quot;CM&quot;] = 900;</span><br><span class="line">        </span><br><span class="line">        int res=0, i=0;</span><br><span class="line">        while(i &lt; s.size())&#123;</span><br><span class="line">            if(i+1 &lt; s.size() &amp;&amp; mapRomanToNumber.find(s.substr(i,2)) != mapRomanToNumber.end())&#123;</span><br><span class="line">                res += mapRomanToNumber[s.substr(i,2)];</span><br><span class="line">                i += 2;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                res += mapRomanToNumber[s.substr(i,1)];</span><br><span class="line">                i += 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>结果：Runtime: 52ms, Ranking 99.73%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</span><br><span class="line">Output: &quot;&quot;</span><br><span class="line">Explanation: There is no common prefix among the input strings.</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<p>All given inputs are in lowercase letters <code>a-z</code>.</p>
+<p>思路：无脑遍历比较即可，代码如下.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) &#123;</span><br><span class="line">        if (strs.empty()) return &quot;&quot;;</span><br><span class="line">        for (int j = 0; j &lt; strs[0].size(); ++j) &#123;</span><br><span class="line">            for (int i = 0; i &lt; strs.size() - 1; ++i) &#123;</span><br><span class="line">                if (j &gt;= strs[i].size() || j &gt;= strs[i + 1].size() || strs[i][j] != strs[i + 1][j]) &#123;</span><br><span class="line">                    return strs[i].substr(0, j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return strs[0];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Res. Runtime: 4ms, Ranking 99.98%</p>
 </li>
 </ol>
 
@@ -524,141 +512,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/leetcode_go/5_Palindrome_Number/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/04/leetcode_go/5_Palindrome_Number/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T23:28:42+08:00">
-                2018-09-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>Palindrome Number (Easy)</p>
-<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 121</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: -121</span><br><span class="line">Output: false</span><br><span class="line">Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 10</span><br><span class="line">Output: false</span><br><span class="line">Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
-<p><strong>Follow up:</strong></p>
-<p>Coud you solve it without converting the integer to a string?</p>
-<p>直觉告诉我，数字的处理比字母更有技巧性，应该有巧妙的方法求解。首先，如果为负数，返回false；其次，开辟一个vector变量，将x的每一位存入该变量中，然后遍历比较即可。代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPalindrome(int x) &#123;</span><br><span class="line">        if(x &lt; 0) return false;</span><br><span class="line">        vector&lt;int&gt; temp;</span><br><span class="line">        while(x != 0)&#123;</span><br><span class="line">            temp.push_back(x%10);</span><br><span class="line">            x /= 10;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        for(int i = 0; i&lt;temp.size()/2; i++)&#123;</span><br><span class="line">            if(temp[i] != temp[temp.size()-1-i]) return false;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>result: Runtime: 120 ms, Ranking 99.83%</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/leetcode_go/9_Remove_Duplicates_from_Sorted_Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -744,6 +597,141 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        if (!l1) return l2;</span><br><span class="line">        if (!l2) return l1;</span><br><span class="line">        ListNode *head = l1-&gt;val &lt; l2-&gt;val ? l1 : l2;</span><br><span class="line">        ListNode *nonhead = l1-&gt;val &lt; l2-&gt;val ? l2 : l1;</span><br><span class="line">        head-&gt;next = mergeTwoLists(head-&gt;next, nonhead);</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>丧心病狂的解法，三行搞定！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        if (!l1 || (l2 &amp;&amp; l1-&gt;val &gt; l2-&gt;val)) swap(l1, l2);</span><br><span class="line">        if (l1) l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);</span><br><span class="line">        return l1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/leetcode_go/5_Palindrome_Number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/04/leetcode_go/5_Palindrome_Number/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T23:28:42+08:00">
+                2018-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>Palindrome Number (Easy)</p>
+<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 121</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: -121</span><br><span class="line">Output: false</span><br><span class="line">Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 10</span><br><span class="line">Output: false</span><br><span class="line">Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
+<p><strong>Follow up:</strong></p>
+<p>Coud you solve it without converting the integer to a string?</p>
+<p>直觉告诉我，数字的处理比字母更有技巧性，应该有巧妙的方法求解。首先，如果为负数，返回false；其次，开辟一个vector变量，将x的每一位存入该变量中，然后遍历比较即可。代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPalindrome(int x) &#123;</span><br><span class="line">        if(x &lt; 0) return false;</span><br><span class="line">        vector&lt;int&gt; temp;</span><br><span class="line">        while(x != 0)&#123;</span><br><span class="line">            temp.push_back(x%10);</span><br><span class="line">            x /= 10;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        for(int i = 0; i&lt;temp.size()/2; i++)&#123;</span><br><span class="line">            if(temp[i] != temp[temp.size()-1-i]) return false;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>result: Runtime: 120 ms, Ranking 99.83%</p>
 </li>
 </ol>
 
@@ -924,138 +912,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/leetcode_go/3_Median_of_Two_Sorted_Arrays/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/04/leetcode_go/3_Median_of_Two_Sorted_Arrays/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T23:28:42+08:00">
-                2018-09-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>Median of Two Sorted Arrays (Hard)</p>
-<p>There are two sorted arrays <strong>nums1</strong> and <strong>nums2</strong> of size m and n respectively.</p>
-<p>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">The median is 2.0</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line"></span><br><span class="line">The median is (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
-<p>思路：同时对数组一和数组二进行遍历，数组一方向从左到右，数组二从右到左。时间40ms，排名98.62%</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">     ios::sync_with_stdio(false);</span><br><span class="line">     cin.tie(nullptr);</span><br><span class="line">     return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123;</span><br><span class="line">        int left1=0, left2=0, right1=nums1.size()-1, right2=nums2.size()-1;</span><br><span class="line">        if(right1==-1 &amp;&amp; right2==-1) return -1;</span><br><span class="line">        if(right1==-1)&#123;</span><br><span class="line">            if(nums2.size()%2 == 0) return (nums2[nums2.size()/2]+nums2[nums2.size()/2-1])/2.0;</span><br><span class="line">            else return nums2[nums2.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">         if(right2==-1)&#123;</span><br><span class="line">            if(nums1.size()%2 == 0) return (nums1[nums1.size()/2]+nums1[nums1.size()/2-1])/2.0;</span><br><span class="line">            else return nums1[nums1.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">        if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            </span><br><span class="line">            if(nums1[left1]&lt;nums2[left2]) left1 += 1;</span><br><span class="line">            else left2+=1;</span><br><span class="line">            if(nums1[right1]&gt;nums2[right2]) right1 -= 1;</span><br><span class="line">            else right2 -= 1;</span><br><span class="line">            </span><br><span class="line">            if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">            if(left1&gt;right1) &#123;</span><br><span class="line">                if((right2-left2)%2 == 0) return nums2[left2+(right2-left2)/2];</span><br><span class="line">                else return (nums2[left2+(right2-left2)/2]+nums2[left2+(right2-left2)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">            if(left2&gt;right2)&#123;</span><br><span class="line">                if((right1-left1)%2 == 0) return nums1[left1+(right1-left1)/2];</span><br><span class="line">                else return (nums1[left1+(right1-left1)/2]+nums1[left1+(right1-left1)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/leetcode_go/1_Add_Two_Numbers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1142,6 +998,138 @@
 <p>解释：</p>
 <p>sync_with_stdio函数：是一个“是否兼容studio”的开关，C++为了兼容C，保证程序在使用了std::print和std::cout的时候不发生混乱，将输出流绑到了一起。首先sync_with_stdio(false)是为了打断iostream输入输出到缓存，可以节约很多时间，使之与scanf相差无几</p>
 <p>tie是将两个stream绑定的函数，空参数的话返回当前的输出指针，即tie(0)与tie(nullptr)来解决cin与cout的绑定。</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/leetcode_go/3_Median_of_Two_Sorted_Arrays/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p69513dvb.bkt.clouddn.com/images/test.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/04/leetcode_go/3_Median_of_Two_Sorted_Arrays/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T23:28:42+08:00">
+                2018-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>Median of Two Sorted Arrays (Hard)</p>
+<p>There are two sorted arrays <strong>nums1</strong> and <strong>nums2</strong> of size m and n respectively.</p>
+<p>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">The median is 2.0</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line"></span><br><span class="line">The median is (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
+<p>思路：同时对数组一和数组二进行遍历，数组一方向从左到右，数组二从右到左。时间40ms，排名98.62%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">     ios::sync_with_stdio(false);</span><br><span class="line">     cin.tie(nullptr);</span><br><span class="line">     return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123;</span><br><span class="line">        int left1=0, left2=0, right1=nums1.size()-1, right2=nums2.size()-1;</span><br><span class="line">        if(right1==-1 &amp;&amp; right2==-1) return -1;</span><br><span class="line">        if(right1==-1)&#123;</span><br><span class="line">            if(nums2.size()%2 == 0) return (nums2[nums2.size()/2]+nums2[nums2.size()/2-1])/2.0;</span><br><span class="line">            else return nums2[nums2.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">         if(right2==-1)&#123;</span><br><span class="line">            if(nums1.size()%2 == 0) return (nums1[nums1.size()/2]+nums1[nums1.size()/2-1])/2.0;</span><br><span class="line">            else return nums1[nums1.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">        if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            </span><br><span class="line">            if(nums1[left1]&lt;nums2[left2]) left1 += 1;</span><br><span class="line">            else left2+=1;</span><br><span class="line">            if(nums1[right1]&gt;nums2[right2]) right1 -= 1;</span><br><span class="line">            else right2 -= 1;</span><br><span class="line">            </span><br><span class="line">            if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">            if(left1&gt;right1) &#123;</span><br><span class="line">                if((right2-left2)%2 == 0) return nums2[left2+(right2-left2)/2];</span><br><span class="line">                else return (nums2[left2+(right2-left2)/2]+nums2[left2+(right2-left2)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">            if(left2&gt;right2)&#123;</span><br><span class="line">                if((right1-left1)%2 == 0) return nums1[left1+(right1-left1)/2];</span><br><span class="line">                else return (nums1[left1+(right1-left1)/2]+nums1[left1+(right1-left1)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>​</p>
 </li>
 </ol>
 
@@ -1566,7 +1554,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/17/180417pytorch网络可视化/" itemprop="url">180417pytorch网络可视化</a></h1>
+                <a class="post-title-link" href="/2018/04/17/180417pytorch网络可视化/" itemprop="url">pytorch网络可视化</a></h1>
         
 
         <div class="post-meta">
