@@ -702,7 +702,7 @@ Res. Runtimes: 4ms, Ranking 100.00%
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/12_Implement_strStr()/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/11_Remove_Element/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -721,7 +721,7 @@ Res. Runtimes: 4ms, Ranking 100.00%
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/12_Implement_strStr()/" itemprop="url">28. Implement strStr()</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/11_Remove_Element/" itemprop="url">27. Remove Element</a></h1>
         
 
         <div class="post-meta">
@@ -795,31 +795,35 @@ Res. Runtimes: 4ms, Ranking 100.00%
       
         
           
-            <pre><code>Implement [strStr()](http://www.cplusplus.com/reference/cstring/strstr/).
+            <pre><code>Given an array *nums* and a value *val*, remove all instances of that value [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) and return the new length.
 
-Return the index of the first occurrence of needle in haystack, or **-1** if needle is not part of haystack.
+Do not allocate extra space for another array, you must do this by **modifying the input array in-place** with O(1) extra memory.
+
+The order of elements can be changed. It doesn&apos;t matter what you leave beyond the new length.
 
 **Example 1:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;hello&quot;, needle = &quot;ll&quot;</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [3,2,2,3], val = 3,</span><br><span class="line"></span><br><span class="line">Your function should return length = 2, with the first two elements of nums being 2.</span><br><span class="line"></span><br><span class="line">It doesn&apos;t matter what you leave beyond the returned length.</span><br></pre></td></tr></table></figure>
 
 **Example 2:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [0,1,2,2,3,0,4,2], val = 2,</span><br><span class="line"></span><br><span class="line">Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.</span><br><span class="line"></span><br><span class="line">Note that the order of those five elements can be arbitrary.</span><br><span class="line"></span><br><span class="line">It doesn&apos;t matter what values are set beyond the returned length.</span><br></pre></td></tr></table></figure>
 
 **Clarification:**
 
-What should we return when `needle` is an empty string? This is a great question to ask during an interview.
+Confused why the returned value is an integer but your answer is an array?
 
-For the purpose of this problem, we will return 0 when `needle` is an empty string. This is consistent to C&apos;s [strstr()](http://www.cplusplus.com/reference/cstring/strstr/) and Java&apos;s [indexOf()](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#indexOf(java.lang.String)).
+Note that the input array is passed in by **reference**, which means modification to the input array will be known to the caller as well.
 
-思路：双循环遍历，即可。代码如下。
+Internally you can think of this:
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int strStr(string haystack, string needle) &#123;</span><br><span class="line">        if (needle.size() == 0) return 0;</span><br><span class="line">        if (needle.size() &gt; haystack.size()) return -1;</span><br><span class="line">        </span><br><span class="line">        for (int i = 0; i &lt; haystack.size() - needle.size() + 1; i++) &#123;</span><br><span class="line">            int j = 0;</span><br><span class="line">            for (; j &lt; needle.size(); j++) &#123;</span><br><span class="line">                if ( haystack[i + j] != needle[j])  </span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            if (j == needle.size()) return i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// nums is passed in by reference. (i.e., without making a copy)</span><br><span class="line">int len = removeElement(nums, val);</span><br><span class="line"></span><br><span class="line">// any modification to nums in your function would be known by the caller.</span><br><span class="line">// using the length returned by your function, it prints the first len elements.</span><br><span class="line">for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-Res. Runtime: 4 ms, Ranking 99.97%.
+思路：解法同上一题差不多。代码如下：
 
-加上控制输入输出的语句后，Runtime: 0 ms, Ranking 100%
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(nullptr);</span><br><span class="line">    return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int removeElement(vector&lt;int&gt;&amp; nums, int val) &#123;</span><br><span class="line"></span><br><span class="line">        int len = -1, cur = 0;</span><br><span class="line">        </span><br><span class="line">        for (int i = 0; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            if (nums[cur] != val) &#123;</span><br><span class="line">                len++;</span><br><span class="line">                nums[len] = nums[cur];</span><br><span class="line">            &#125;</span><br><span class="line">            cur++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return len+1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Res. 未加入输入输出控制时，达到4ms，99.6%，加入神奇的代码段后，达到0ms， 100%
 </code></pre>
           
         
@@ -1041,7 +1045,7 @@ Runtime: 8ms, Ranking 61.74%
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/24_Regular_Expression_Matching/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/25_Pow(x,n)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -1060,7 +1064,7 @@ Runtime: 8ms, Ranking 61.74%
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/24_Regular_Expression_Matching/" itemprop="url">10. Regular Expression Matching</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/25_Pow(x,n)/" itemprop="url">50. Pow(x, n)</a></h1>
         
 
         <div class="post-meta">
@@ -1134,40 +1138,31 @@ Runtime: 8ms, Ranking 61.74%
       
         
           
-            <pre><code>Given an input string (`s`) and a pattern (`p`), implement regular expression matching with support for `&apos;.&apos;` and `&apos;*&apos;`.
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;.&apos; Matches any single character.</span><br><span class="line">&apos;*&apos; Matches zero or more of the preceding element.</span><br></pre></td></tr></table></figure>
-
-The matching should cover the **entire** input string (not partial).
-
-**Note:**
-
-- `s` could be empty and contains only lowercase letters `a-z`.
-- `p` could be empty and contains only lowercase letters `a-z`, and characters like `.` or `*`.
+            <pre><code>Implement [pow(*x*, *n*)](http://www.cplusplus.com/reference/valarray/pow/), which calculates *x* raised to the power *n* (xn).
 
 **Example 1:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a&quot;</span><br><span class="line">Output: false</span><br><span class="line">Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 2.00000, 10</span><br><span class="line">Output: 1024.00000</span><br></pre></td></tr></table></figure>
 
 **Example 2:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a*&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &apos;*&apos; means zero or more of the precedeng element, &apos;a&apos;. Therefore, by repeating &apos;a&apos; once, it becomes &quot;aa&quot;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 2.10000, 3</span><br><span class="line">Output: 9.26100</span><br></pre></td></tr></table></figure>
 
 **Example 3:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;ab&quot;</span><br><span class="line">p = &quot;.*&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 2.00000, -2</span><br><span class="line">Output: 0.25000</span><br><span class="line">Explanation: 2-2 = 1/22 = 1/4 = 0.25</span><br></pre></td></tr></table></figure>
 
-**Example 4:**
+**Note:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aab&quot;</span><br><span class="line">p = &quot;c*a*b&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches &quot;aab&quot;.</span><br></pre></td></tr></table></figure>
+- -100.0 &lt; *x* &lt; 100.0
+- *n* is a 32-bit signed integer, within the range [−2^31, 2^31 − 1]
 
-**Example 5:**
+思路：原以为是如何处理大数问题，因为感觉n的值为有符号的整数，会是一个大数。看别人写的代码，采用double来存储x的数值。double的范围在+/- 1.7e +/-308，如果而n和x分别采用最大值，即x=100, n=2.1*10^9， 则pow(x, n) = 10e10^9，应该是远超double的范围了。但是代码是能通过OJ的，不知道为什么。
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;mississippi&quot;</span><br><span class="line">p = &quot;mis*is*p*.&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-</code></pre><p>这道题有两种方法，一种是动态法，另外一种是递归方法，递归速度比较慢，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isMatch(string s, string p) &#123;</span><br><span class="line">        if (p.empty()) return s.empty();</span><br><span class="line">        if (p.size() == 1) &#123;</span><br><span class="line">            return (s.size() == 1 &amp;&amp; (s[0] == p[0] || p[0] == &apos;.&apos;));</span><br><span class="line">        &#125;</span><br><span class="line">        if (p[1] != &apos;*&apos;) &#123;</span><br><span class="line">            if (s.empty()) return false;</span><br><span class="line">            return (s[0] == p[0] || p[0] == &apos;.&apos;) &amp;&amp; isMatch(s.substr(1), p.substr(1));</span><br><span class="line">        &#125;</span><br><span class="line">        while (!s.empty() &amp;&amp; (s[0] == p[0] || p[0] == &apos;.&apos;)) &#123;</span><br><span class="line">            if (isMatch(s, p.substr(2))) return true;</span><br><span class="line">            s = s.substr(1);</span><br><span class="line">        &#125;</span><br><span class="line">        return isMatch(s, p.substr(2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>4ms， Ranking 27%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double myPow(double x, int n) &#123;</span><br><span class="line">        if (n &lt; 0) return 1 / power(x, -n);</span><br><span class="line">        return power(x, n);</span><br><span class="line">    &#125;</span><br><span class="line">    double power(double x, int n) &#123;</span><br><span class="line">        if (n == 0) return 1;</span><br><span class="line">        double half = power(x, n / 2);</span><br><span class="line">        if (n % 2 == 0) return half * half;</span><br><span class="line">        return x * half * half;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+结果：4ms， 98.54%
+</code></pre>
           
         
       
