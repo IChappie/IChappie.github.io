@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/14_Maximun_Subarry/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/15_Plus_One/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/14_Maximun_Subarry/" itemprop="url">53. Maximum Subarry</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/15_Plus_One/" itemprop="url">66. Plus One</a></h1>
         
 
         <div class="post-meta">
@@ -325,21 +325,29 @@
       
         
           
-            <pre><code>Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+            <pre><code>Given a **non-empty** array of digits representing a non-negative integer, plus one to the integer.
 
-**Example:**
+The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum = 6.</span><br></pre></td></tr></table></figure>
+You may assume the integer does not contain any leading zero, except the number 0 itself.
 
-**Follow up:**
+**Example 1:**
 
-If you have figured out the O(*n*) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3]</span><br><span class="line">Output: [1,2,4]</span><br><span class="line">Explanation: The array represents the integer 123.</span><br></pre></td></tr></table></figure>
 
-思路：我将这种问题理解为“金字塔”问题。每一步结果都建立在前面的基础上，但下一步的结果只需要考虑当前与下一位置的结果（如果不输出过程的话）。这种问题只要将打地基的过程想清楚，循环处理即可。这里的打地基为：如果前面的累加和加上当前位置的值大于当前位置的值，则加上当前位置的值，更新累加和，否则丢弃之前的累加和，更新为当前值。代码如下.
+**Example 2:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxSubArray(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        </span><br><span class="line">        if (nums.size() == 1) return nums[0];</span><br><span class="line">        </span><br><span class="line">        int res = nums[0];</span><br><span class="line">        int sum = nums[0];</span><br><span class="line">        </span><br><span class="line">        for (int i = 1; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            if (sum &lt; nums[i]) sum = nums[i];</span><br><span class="line">            if (sum &gt; res) res = sum;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [4,3,2,1]</span><br><span class="line">Output: [4,3,2,2]</span><br><span class="line">Explanation: The array represents the integer 4321.</span><br></pre></td></tr></table></figure>
 
-Res. 4ms, Ranking 100.00%.
+思路：从后往前遍历，加一，满十进一，当不满十时，即可马上终止。代码如下
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) &#123;</span><br><span class="line">    </span><br><span class="line">        digits[digits.size() - 1] += 1;</span><br><span class="line">        </span><br><span class="line">        for (int i = digits.size() - 1; i &gt; 0; i--)&#123;</span><br><span class="line">            </span><br><span class="line">            if (digits[i] &gt; 9) &#123;</span><br><span class="line">                digits[i] = 0;</span><br><span class="line">                digits[i - 1] += 1;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                return digits;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if (digits[0] &gt; 9)&#123;</span><br><span class="line">            digits[0] = 0;</span><br><span class="line">            digits.insert(digits.begin(), 1);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Res. 0ms, Ranking 100.100%. 查了一下最快的算法，如下，采用除余与整除的方法。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) &#123;</span><br><span class="line">        int adder = 1;</span><br><span class="line">        for (int i = digits.size() - 1; i &gt;= 0; i--)&#123;</span><br><span class="line">            int n = digits[i] + adder;</span><br><span class="line">            digits[i] = n % 10;</span><br><span class="line">            adder = n / 10;</span><br><span class="line">            if (adder == 0)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (adder == 0)&#123;</span><br><span class="line">            return digits;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            digits.insert(digits.begin(), 1);</span><br><span class="line">            return digits;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+虽然写法更为简洁，但出发和除余的操作显然会比加减更耗资源，因此上面的解法是较优解法。
 </code></pre>
           
         
@@ -552,7 +560,7 @@ Res. Runtimes: 4ms, Ranking 100.00%
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/24_Regular_Expression_Matching/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/23_Single_Number_II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -571,7 +579,7 @@ Res. Runtimes: 4ms, Ranking 100.00%
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/24_Regular_Expression_Matching/" itemprop="url">10. Regular Expression Matching</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/23_Single_Number_II/" itemprop="url">137. Single Numver II</a></h1>
         
 
         <div class="post-meta">
@@ -645,39 +653,38 @@ Res. Runtimes: 4ms, Ranking 100.00%
       
         
           
-            <pre><code>Given an input string (`s`) and a pattern (`p`), implement regular expression matching with support for `&apos;.&apos;` and `&apos;*&apos;`.
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;.&apos; Matches any single character.</span><br><span class="line">&apos;*&apos; Matches zero or more of the preceding element.</span><br></pre></td></tr></table></figure>
-
-The matching should cover the **entire** input string (not partial).
+            <pre><code>Given a **non-empty** array of integers, every element appears *three* times except for one, which appears exactly once. Find that single one.
 
 **Note:**
 
-- `s` could be empty and contains only lowercase letters `a-z`.
-- `p` could be empty and contains only lowercase letters `a-z`, and characters like `.` or `*`.
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 
 **Example 1:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a&quot;</span><br><span class="line">Output: false</span><br><span class="line">Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,2,3,2]</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
 
 **Example 2:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a*&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &apos;*&apos; means zero or more of the precedeng element, &apos;a&apos;. Therefore, by repeating &apos;a&apos; once, it becomes &quot;aa&quot;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [0,1,0,1,0,1,99]</span><br><span class="line">Output: 99</span><br></pre></td></tr></table></figure>
 
-**Example 3:**
+思路：利用计算机按位存储数字的特性来做，除了一个单独的数字之外，数组中其他数字都出现了三次，那么还是要利用位操作来解此题。我们可以建立一个32位的数字，来统计每一位上1出现的个数，我们知道如果某一位上为1的话，那么如果该整数出现了三次，对3去余为0，我们把每个数的对应位都加起来对3取余，最终剩下来的那个数就是单独的数字。代码如下：
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;ab&quot;</span><br><span class="line">p = &quot;.*&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int singleNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res = 0;</span><br><span class="line">        for (int i = 0; i &lt; 32; ++i) &#123;</span><br><span class="line">            int sum = 0;</span><br><span class="line">            for (int j = 0; j &lt; nums.size(); ++j) &#123;</span><br><span class="line">                sum += (nums[j] &gt;&gt; i) &amp; 1;</span><br><span class="line">            &#125;</span><br><span class="line">            res |= (sum % 3) &lt;&lt; i;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-**Example 4:**
+Runtime: 8ms, Ranking 61.74%
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aab&quot;</span><br><span class="line">p = &quot;c*a*b&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches &quot;aab&quot;.</span><br></pre></td></tr></table></figure>
+另外有解法2和3，如下：
 
-**Example 5:**
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int singleNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int one = 0, two = 0, three = 0;</span><br><span class="line">        for (int i = 0; i &lt; nums.size(); ++i) &#123;</span><br><span class="line">            two |= one &amp; nums[i];</span><br><span class="line">            one ^= nums[i];</span><br><span class="line">            three = one &amp; two;</span><br><span class="line">            one &amp;= ~three;</span><br><span class="line">            two &amp;= ~three;</span><br><span class="line">        &#125;</span><br><span class="line">        return one;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;mississippi&quot;</span><br><span class="line">p = &quot;mis*is*p*.&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-</code></pre><p>这道题有两种方法，一种是动态法，另外一种是递归方法，递归速度比较慢，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isMatch(string s, string p) &#123;</span><br><span class="line">        if (p.empty()) return s.empty();</span><br><span class="line">        if (p.size() == 1) &#123;</span><br><span class="line">            return (s.size() == 1 &amp;&amp; (s[0] == p[0] || p[0] == &apos;.&apos;));</span><br><span class="line">        &#125;</span><br><span class="line">        if (p[1] != &apos;*&apos;) &#123;</span><br><span class="line">            if (s.empty()) return false;</span><br><span class="line">            return (s[0] == p[0] || p[0] == &apos;.&apos;) &amp;&amp; isMatch(s.substr(1), p.substr(1));</span><br><span class="line">        &#125;</span><br><span class="line">        while (!s.empty() &amp;&amp; (s[0] == p[0] || p[0] == &apos;.&apos;)) &#123;</span><br><span class="line">            if (isMatch(s, p.substr(2))) return true;</span><br><span class="line">            s = s.substr(1);</span><br><span class="line">        &#125;</span><br><span class="line">        return isMatch(s, p.substr(2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>4ms， Ranking 27%</p>
+解法3：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int singleNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int a = 0, b = 0;</span><br><span class="line">        for (int i = 0; i &lt; nums.size(); ++i) &#123;</span><br><span class="line">            b = (b ^ nums[i]) &amp; ~a;</span><br><span class="line">            a = (a ^ nums[i]) &amp; ~b;</span><br><span class="line">        &#125;</span><br><span class="line">        return b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+网页链接：http://www.cnblogs.com/grandyang/p/4263927.html
+
+​
+</code></pre><p>开始尝试难度为m或H的题目，关键是弄懂：</p>
 
           
         
@@ -1643,7 +1650,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/1_leetcode_go/1_Add_Two_Numbers/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/1_leetcode_go/3_Median_of_Two_Sorted_Arrays/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -1662,7 +1669,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/13/1_leetcode_go/1_Add_Two_Numbers/" itemprop="url">2. Add Two Numbers (Medium)</a></h1>
+                <a class="post-title-link" href="/2018/06/13/1_leetcode_go/3_Median_of_Two_Sorted_Arrays/" itemprop="url">4. Median of Two Sorted Arrays (Hard)</a></h1>
         
 
         <div class="post-meta">
@@ -1736,31 +1743,23 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
       
         
           
-            <pre><code>You are given two **non-empty** linked lists representing two non-negative integers. The digits are stored in **reverse order** and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+            <pre><code>There are two sorted arrays **nums1** and **nums2** of size m and n respectively.
 
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
 
-**Example**
+**Example 1:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</span><br><span class="line">Output: 7 -&gt; 0 -&gt; 8</span><br><span class="line">Explanation: 342 + 465 = 807.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">The median is 2.0</span><br></pre></td></tr></table></figure>
 
-思路：同时遍历两个链表，将对应位相加，结果58ms，排名71.24%
+**Example 2:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        ListNode *dummy = new ListNode(0), *p = dummy;</span><br><span class="line">        int carry = 0;</span><br><span class="line">        while(l1 || l2 || carry)&#123;</span><br><span class="line">            if(l1)&#123;</span><br><span class="line">                carry+=l1-&gt;val;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            if(l2)&#123;</span><br><span class="line">                carry+=l2-&gt;val;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p-&gt;next = new ListNode(carry%10);</span><br><span class="line">            carry /= 10;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line"></span><br><span class="line">The median is (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
 
-看了一圈网上的题解，思路基本是这个套路。下面是leetcode官网最快的代码。（29ms)，实际运行40ms，而如果没有static const auto段的话，反而更慢，只有80ms。
+思路：同时对数组一和数组二进行遍历，数组一方向从左到右，数组二从右到左。时间40ms，排名98.62%
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">     ios::sync_with_stdio(false);</span><br><span class="line">     cin.tie(nullptr);</span><br><span class="line">     return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) &#123;  </span><br><span class="line">        ListNode* head = new ListNode(0);</span><br><span class="line">        ListNode* curr = head;</span><br><span class="line">        int cbit = 0;</span><br><span class="line">        int a = 0;</span><br><span class="line">        int b = 0;</span><br><span class="line">        while(l1||l2)</span><br><span class="line">        &#123;</span><br><span class="line">            int sum = ((l1)?(l1-&gt;val):(0)) + ((l2)?(l2-&gt;val):(0)) + cbit;</span><br><span class="line">            curr-&gt;next = new ListNode(sum%10);</span><br><span class="line">            cbit = sum/10;</span><br><span class="line">            if(l1) l1 = l1-&gt;next;</span><br><span class="line">            if(l2) l2 = l2-&gt;next;</span><br><span class="line">            curr = curr-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        if (cbit)  </span><br><span class="line">        &#123;</span><br><span class="line">            curr-&gt;next = new ListNode(cbit);    </span><br><span class="line">        &#125;</span><br><span class="line">        return head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">     ios::sync_with_stdio(false);</span><br><span class="line">     cin.tie(nullptr);</span><br><span class="line">     return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123;</span><br><span class="line">        int left1=0, left2=0, right1=nums1.size()-1, right2=nums2.size()-1;</span><br><span class="line">        if(right1==-1 &amp;&amp; right2==-1) return -1;</span><br><span class="line">        if(right1==-1)&#123;</span><br><span class="line">            if(nums2.size()%2 == 0) return (nums2[nums2.size()/2]+nums2[nums2.size()/2-1])/2.0;</span><br><span class="line">            else return nums2[nums2.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">         if(right2==-1)&#123;</span><br><span class="line">            if(nums1.size()%2 == 0) return (nums1[nums1.size()/2]+nums1[nums1.size()/2-1])/2.0;</span><br><span class="line">            else return nums1[nums1.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">        if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            </span><br><span class="line">            if(nums1[left1]&lt;nums2[left2]) left1 += 1;</span><br><span class="line">            else left2+=1;</span><br><span class="line">            if(nums1[right1]&gt;nums2[right2]) right1 -= 1;</span><br><span class="line">            else right2 -= 1;</span><br><span class="line">            </span><br><span class="line">            if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">            if(left1&gt;right1) &#123;</span><br><span class="line">                if((right2-left2)%2 == 0) return nums2[left2+(right2-left2)/2];</span><br><span class="line">                else return (nums2[left2+(right2-left2)/2]+nums2[left2+(right2-left2)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">            if(left2&gt;right2)&#123;</span><br><span class="line">                if((right1-left1)%2 == 0) return nums1[left1+(right1-left1)/2];</span><br><span class="line">                else return (nums1[left1+(right1-left1)/2]+nums1[left1+(right1-left1)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-仔细观察，可以看到，该解法比第一种解法，少了进位的判断次数，但增加了l1和l2是否是Null的判断，因此算法写法上并不占便宜。我将蜜汁优化段加入到第一种解法中，显示运行时间40ms，排名99.08%！（另外，每次提交时，时间可能不同，这可能跟测试用例有关）
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()&#123;ios::sync_with_stdio(false);cin.tie(nullptr);return nullptr;&#125;();</span><br></pre></td></tr></table></figure>
-
-解释：
-
-sync_with_stdio函数：是一个“是否兼容studio&quot;的开关，C++为了兼容C，保证程序在使用了std::print和std::cout的时候不发生混乱，将输出流绑到了一起。首先sync_with_stdio(false)是为了打断iostream输入输出到缓存，可以节约很多时间，使之与scanf相差无几
-
-tie是将两个stream绑定的函数，空参数的话返回当前的输出指针，即tie(0)与tie(nullptr)来解决cin与cout的绑定。
+​
 </code></pre>
           
         
