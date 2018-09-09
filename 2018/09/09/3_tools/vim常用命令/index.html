@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="编程," />
+  <meta name="keywords" content="tools," />
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="最近因为调试车道线代码，LeetCode停滞了好一段时间，现在必须奋起直追了～先从Easy入手，再依次Medium、Hard    Given a 32-bit signed integer, reverse digits of an integer.    Example 1:    12Input: 123Output: 321    Example 2:    12Input: -123Ou">
-<meta name="keywords" content="编程">
+<meta name="description" content="vi/vim的使用vi/vim共分为三种模式，分别是命令模式(Command mode)，输入模式(Insert mode)和底线命令模式(Last Line mode)。这三种模式的作用分别是： #####命令模式 启动vi/vim即进入命令模式。此状态下敲击键盘动作会被vim识别为命令。 常用的几个命令：  i切换到插入模式，以输入字符。 x删除当前光标所在处的字符。 :切换到底线命令模式，以">
+<meta name="keywords" content="tools">
 <meta property="og:type" content="article">
-<meta property="og:title" content="7. Reverse Integer (Easy)">
-<meta property="og:url" content="http://yoursite.com/2018/07/07/1_leetcode_go/4_Reverse_Integer/index.html">
+<meta property="og:title" content="vim常用命令">
+<meta property="og:url" content="http://yoursite.com/2018/09/09/3_tools/vim常用命令/index.html">
 <meta property="og:site_name" content="静坐听雨">
-<meta property="og:description" content="最近因为调试车道线代码，LeetCode停滞了好一段时间，现在必须奋起直追了～先从Easy入手，再依次Medium、Hard    Given a 32-bit signed integer, reverse digits of an integer.    Example 1:    12Input: 123Output: 321    Example 2:    12Input: -123Ou">
+<meta property="og:description" content="vi/vim的使用vi/vim共分为三种模式，分别是命令模式(Command mode)，输入模式(Insert mode)和底线命令模式(Last Line mode)。这三种模式的作用分别是： #####命令模式 启动vi/vim即进入命令模式。此状态下敲击键盘动作会被vim识别为命令。 常用的几个命令：  i切换到插入模式，以输入字符。 x删除当前光标所在处的字符。 :切换到底线命令模式，以">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-04T15:43:04.772Z">
+<meta property="og:image" content="http://p69513dvb.bkt.clouddn.com/images/vim-vi-workmodel.png">
+<meta property="og:updated_time" content="2018-09-09T05:07:23.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="7. Reverse Integer (Easy)">
-<meta name="twitter:description" content="最近因为调试车道线代码，LeetCode停滞了好一段时间，现在必须奋起直追了～先从Easy入手，再依次Medium、Hard    Given a 32-bit signed integer, reverse digits of an integer.    Example 1:    12Input: 123Output: 321    Example 2:    12Input: -123Ou">
+<meta name="twitter:title" content="vim常用命令">
+<meta name="twitter:description" content="vi/vim的使用vi/vim共分为三种模式，分别是命令模式(Command mode)，输入模式(Insert mode)和底线命令模式(Last Line mode)。这三种模式的作用分别是： #####命令模式 启动vi/vim即进入命令模式。此状态下敲击键盘动作会被vim识别为命令。 常用的几个命令：  i切换到插入模式，以输入字符。 x删除当前光标所在处的字符。 :切换到底线命令模式，以">
+<meta name="twitter:image" content="http://p69513dvb.bkt.clouddn.com/images/vim-vi-workmodel.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/07/1_leetcode_go/4_Reverse_Integer/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/09/3_tools/vim常用命令/"/>
 
 
 
 
 
-  <title>7. Reverse Integer (Easy) | 静坐听雨</title>
+  <title>vim常用命令 | 静坐听雨</title>
   
 
 
@@ -233,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/1_leetcode_go/4_Reverse_Integer/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/09/3_tools/vim常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -250,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">7. Reverse Integer (Easy)</h1>
+          <h1 class="post-title" itemprop="name headline">vim常用命令</h1>
         
 
         <div class="post-meta">
@@ -262,8 +264,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T22:13:30+08:00">
-                2018-07-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-09T12:09:03+08:00">
+                2018-09-09
               </time>
             
 
@@ -300,18 +302,38 @@
       
 
       
-        <p>最近因为调试车道线代码，LeetCode停滞了好一段时间，现在必须奋起直追了～先从Easy入手，再依次Medium、Hard</p>
-<p>   Given a 32-bit signed integer, reverse digits of an integer.</p>
-<p>   <strong>Example 1:</strong></p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 123</span><br><span class="line">Output: 321</span><br></pre></td></tr></table></figure>
-<p>   <strong>Example 2:</strong></p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: -123</span><br><span class="line">Output: -321</span><br></pre></td></tr></table></figure>
-<p>   <strong>Example 3:</strong></p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 120</span><br><span class="line">Output: 21</span><br></pre></td></tr></table></figure>
-<p>   <strong>Note:</strong><br>   Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p>
-<p>   思路：数字翻转的做法很简单，逐位相加，前一位乘10。需要考虑的是，如何判断数字溢出。一个判断的方法是：溢出前和溢出后的数字不相等。代码如下：</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int reverse(int x) &#123;</span><br><span class="line">        </span><br><span class="line">        if(x&lt;10 &amp;&amp; x&gt;-10) return x;</span><br><span class="line">        </span><br><span class="line">        int res = 0, temp;</span><br><span class="line">        </span><br><span class="line">        while(x != 0)&#123;</span><br><span class="line">            temp = res*10 + x % 10;</span><br><span class="line">            if((temp)/10 != res) return 0;</span><br><span class="line">            res = temp;</span><br><span class="line">            x = x / 10;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>   结果：Runtime: 12ms, ranking 99.5</p>
+        <h4 id="vi-vim的使用"><a href="#vi-vim的使用" class="headerlink" title="vi/vim的使用"></a>vi/vim的使用</h4><p>vi/vim共分为三种模式，分别是<strong>命令模式(Command mode)</strong>，<strong>输入模式(Insert mode)</strong>和<strong>底线命令模式(Last Line mode)</strong>。这三种模式的作用分别是：</p>
+<p>#####命令模式</p>
+<p>启动vi/vim即进入命令模式。此状态下敲击键盘动作会被vim识别为命令。</p>
+<p>常用的几个命令：</p>
+<ul>
+<li><strong>i</strong>切换到插入模式，以输入字符。</li>
+<li><strong>x</strong>删除当前光标所在处的字符。</li>
+<li><strong>:</strong>切换到底线命令模式，以在最底一行输入命令。</li>
+</ul>
+<p>命令模式只有一些最基本的命令，因此仍要依靠底线命令模式输入更多的命令。</p>
+<h5 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h5><p>在命令模式下使用插入命令（i、I、o、O、a、A等），进入了输入模式。在该模式可对文本进行换行、删除、移动光标、输入等操作。</p>
+<p>使用<strong>ESC</strong>，退出输入模式，切换到命令模式。</p>
+<h5 id="底线命令模式"><a href="#底线命令模式" class="headerlink" title="底线命令模式"></a>底线命令模式</h5><p>在命令模式下，(英文冒号)就进入了底线命令模式。在底线命令模式下可以输入单个或多个字符，对本文进行操作。在底线命令模式中，基本的命令有：</p>
+<ul>
+<li><strong>q</strong>不保存，直接退出</li>
+<li><strong>q!</strong>不保存，并强制退出</li>
+<li><strong>e!</strong>放弃所有修改，从上次保存文件开始再编辑</li>
+<li><strong>w</strong>保存文件，但不退出</li>
+<li><strong>w!</strong>强制保存，不退出</li>
+<li><strong>wq</strong>或<strong>x</strong>，保存，并退出</li>
+<li><strong>wq!</strong>强制保存，并退出</li>
+</ul>
+<p>按<strong>ESC</strong>键可随时退出底线命令模式。</p>
+<p>vi/vim工作模式：</p>
+<img title="vi/vim工作模式" alt="vi/vim工作模式" src="http://p69513dvb.bkt.clouddn.com/images/vim-vi-workmodel.png">
+<ul>
+<li><h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4></li>
+</ul>
+<p><a href="https://coolshell.cn/articles/5426.html" target="_blank" rel="noopener">简明VIM练级攻略</a></p>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-tip-vim/index.html" target="_blank" rel="noopener">技巧：快速提高Vi/Vim使用效率的原则与途径</a></p>
+<p><a href="http://www.runoob.com/linux/linux-vim.html" target="_blank" rel="noopener">Linux vi/vim | 菜鸟教程</a></p>
+<p><a href="https://zh.wikibooks.org/zh-hans/Vim/三种模式" target="_blank" rel="noopener">Vim三种模式-维基教科书</a></p>
 
       
     </div>
@@ -329,7 +351,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/编程/" rel="tag"># 编程</a>
+            <a href="/tags/tools/" rel="tag"># tools</a>
           
         </div>
       
@@ -342,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/07/1_leetcode_go/5_Palindrome_Number/" rel="next" title="9. Palindrome Number (Easy)">
-                <i class="fa fa-chevron-left"></i> 9. Palindrome Number (Easy)
+              <a href="/2018/09/09/3_tools/hexo常用命令/" rel="next" title="hexo常用命令">
+                <i class="fa fa-chevron-left"></i> hexo常用命令
               </a>
             
           </div>
@@ -352,8 +374,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/07/1_leetcode_go/7_Longest_Common_Prefix/" rel="prev" title="14. Longest Common Prefix">
-                14. Longest Common Prefix <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/09/3_tools/markdown实用指南/" rel="prev" title="markdown实用指南">
+                markdown实用指南 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -406,8 +428,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -487,6 +518,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#vi-vim的使用"><span class="nav-number">1.</span> <span class="nav-text">vi/vim的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入模式"><span class="nav-number">1.1.</span> <span class="nav-text">输入模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#底线命令模式"><span class="nav-number">1.2.</span> <span class="nav-text">底线命令模式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考："><span class="nav-number">2.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
