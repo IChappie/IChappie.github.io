@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/14_Maximun_Subarry/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/12_Implement_strStr()/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/14_Maximun_Subarry/" itemprop="url">53. Maximum Subarry</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/12_Implement_strStr()/" itemprop="url">28. Implement strStr()</a></h1>
         
 
         <div class="post-meta">
@@ -325,21 +325,31 @@
       
         
           
-            <pre><code>Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+            <pre><code>Implement [strStr()](http://www.cplusplus.com/reference/cstring/strstr/).
 
-**Example:**
+Return the index of the first occurrence of needle in haystack, or **-1** if needle is not part of haystack.
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum = 6.</span><br></pre></td></tr></table></figure>
+**Example 1:**
 
-**Follow up:**
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;hello&quot;, needle = &quot;ll&quot;</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
 
-If you have figured out the O(*n*) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+**Example 2:**
 
-思路：我将这种问题理解为“金字塔”问题。每一步结果都建立在前面的基础上，但下一步的结果只需要考虑当前与下一位置的结果（如果不输出过程的话）。这种问题只要将打地基的过程想清楚，循环处理即可。这里的打地基为：如果前面的累加和加上当前位置的值大于当前位置的值，则加上当前位置的值，更新累加和，否则丢弃之前的累加和，更新为当前值。代码如下.
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxSubArray(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        </span><br><span class="line">        if (nums.size() == 1) return nums[0];</span><br><span class="line">        </span><br><span class="line">        int res = nums[0];</span><br><span class="line">        int sum = nums[0];</span><br><span class="line">        </span><br><span class="line">        for (int i = 1; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            if (sum &lt; nums[i]) sum = nums[i];</span><br><span class="line">            if (sum &gt; res) res = sum;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+**Clarification:**
 
-Res. 4ms, Ranking 100.00%.
+What should we return when `needle` is an empty string? This is a great question to ask during an interview.
+
+For the purpose of this problem, we will return 0 when `needle` is an empty string. This is consistent to C&apos;s [strstr()](http://www.cplusplus.com/reference/cstring/strstr/) and Java&apos;s [indexOf()](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#indexOf(java.lang.String)).
+
+思路：双循环遍历，即可。代码如下。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int strStr(string haystack, string needle) &#123;</span><br><span class="line">        if (needle.size() == 0) return 0;</span><br><span class="line">        if (needle.size() &gt; haystack.size()) return -1;</span><br><span class="line">        </span><br><span class="line">        for (int i = 0; i &lt; haystack.size() - needle.size() + 1; i++) &#123;</span><br><span class="line">            int j = 0;</span><br><span class="line">            for (; j &lt; needle.size(); j++) &#123;</span><br><span class="line">                if ( haystack[i + j] != needle[j])  </span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            if (j == needle.size()) return i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Res. Runtime: 4 ms, Ranking 99.97%.
+
+加上控制输入输出的语句后，Runtime: 0 ms, Ranking 100%
 </code></pre>
           
         
