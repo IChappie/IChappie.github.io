@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/15_Plus_One/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/11_Remove_Element/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/15_Plus_One/" itemprop="url">66. Plus One</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/11_Remove_Element/" itemprop="url">27. Remove Element</a></h1>
         
 
         <div class="post-meta">
@@ -325,29 +325,35 @@
       
         
           
-            <pre><code>Given a **non-empty** array of digits representing a non-negative integer, plus one to the integer.
+            <pre><code>Given an array *nums* and a value *val*, remove all instances of that value [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) and return the new length.
 
-The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.
+Do not allocate extra space for another array, you must do this by **modifying the input array in-place** with O(1) extra memory.
 
-You may assume the integer does not contain any leading zero, except the number 0 itself.
+The order of elements can be changed. It doesn&apos;t matter what you leave beyond the new length.
 
 **Example 1:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3]</span><br><span class="line">Output: [1,2,4]</span><br><span class="line">Explanation: The array represents the integer 123.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [3,2,2,3], val = 3,</span><br><span class="line"></span><br><span class="line">Your function should return length = 2, with the first two elements of nums being 2.</span><br><span class="line"></span><br><span class="line">It doesn&apos;t matter what you leave beyond the returned length.</span><br></pre></td></tr></table></figure>
 
 **Example 2:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [4,3,2,1]</span><br><span class="line">Output: [4,3,2,2]</span><br><span class="line">Explanation: The array represents the integer 4321.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [0,1,2,2,3,0,4,2], val = 2,</span><br><span class="line"></span><br><span class="line">Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.</span><br><span class="line"></span><br><span class="line">Note that the order of those five elements can be arbitrary.</span><br><span class="line"></span><br><span class="line">It doesn&apos;t matter what values are set beyond the returned length.</span><br></pre></td></tr></table></figure>
 
-思路：从后往前遍历，加一，满十进一，当不满十时，即可马上终止。代码如下
+**Clarification:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) &#123;</span><br><span class="line">    </span><br><span class="line">        digits[digits.size() - 1] += 1;</span><br><span class="line">        </span><br><span class="line">        for (int i = digits.size() - 1; i &gt; 0; i--)&#123;</span><br><span class="line">            </span><br><span class="line">            if (digits[i] &gt; 9) &#123;</span><br><span class="line">                digits[i] = 0;</span><br><span class="line">                digits[i - 1] += 1;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                return digits;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if (digits[0] &gt; 9)&#123;</span><br><span class="line">            digits[0] = 0;</span><br><span class="line">            digits.insert(digits.begin(), 1);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+Confused why the returned value is an integer but your answer is an array?
 
-Res. 0ms, Ranking 100.100%. 查了一下最快的算法，如下，采用除余与整除的方法。
+Note that the input array is passed in by **reference**, which means modification to the input array will be known to the caller as well.
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) &#123;</span><br><span class="line">        int adder = 1;</span><br><span class="line">        for (int i = digits.size() - 1; i &gt;= 0; i--)&#123;</span><br><span class="line">            int n = digits[i] + adder;</span><br><span class="line">            digits[i] = n % 10;</span><br><span class="line">            adder = n / 10;</span><br><span class="line">            if (adder == 0)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (adder == 0)&#123;</span><br><span class="line">            return digits;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            digits.insert(digits.begin(), 1);</span><br><span class="line">            return digits;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+Internally you can think of this:
 
-虽然写法更为简洁，但出发和除余的操作显然会比加减更耗资源，因此上面的解法是较优解法。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// nums is passed in by reference. (i.e., without making a copy)</span><br><span class="line">int len = removeElement(nums, val);</span><br><span class="line"></span><br><span class="line">// any modification to nums in your function would be known by the caller.</span><br><span class="line">// using the length returned by your function, it prints the first len elements.</span><br><span class="line">for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+思路：解法同上一题差不多。代码如下：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(nullptr);</span><br><span class="line">    return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int removeElement(vector&lt;int&gt;&amp; nums, int val) &#123;</span><br><span class="line"></span><br><span class="line">        int len = -1, cur = 0;</span><br><span class="line">        </span><br><span class="line">        for (int i = 0; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            if (nums[cur] != val) &#123;</span><br><span class="line">                len++;</span><br><span class="line">                nums[len] = nums[cur];</span><br><span class="line">            &#125;</span><br><span class="line">            cur++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return len+1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Res. 未加入输入输出控制时，达到4ms，99.6%，加入神奇的代码段后，达到0ms， 100%
 </code></pre>
           
         
