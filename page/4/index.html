@@ -232,6 +232,137 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/1_leetcode_go/5_Palindrome_Number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/07/1_leetcode_go/5_Palindrome_Number/" itemprop="url">9. Palindrome Number (Easy)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T20:23:24+08:00">
+                2018-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>   Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+<p>   <strong>Example 1:</strong></p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 121</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+<p>   <strong>Example 2:</strong></p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: -121</span><br><span class="line">Output: false</span><br><span class="line">Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
+<p>   <strong>Example 3:</strong></p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 10</span><br><span class="line">Output: false</span><br><span class="line">Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
+<p>   <strong>Follow up:</strong></p>
+<p>   Coud you solve it without converting the integer to a string?</p>
+<p>   直觉告诉我，数字的处理比字母更有技巧性，应该有巧妙的方法求解。首先，如果为负数，返回false；其次，开辟一个vector变量，将x的每一位存入该变量中，然后遍历比较即可。代码如下：</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPalindrome(int x) &#123;</span><br><span class="line">        if(x &lt; 0) return false;</span><br><span class="line">        vector&lt;int&gt; temp;</span><br><span class="line">        while(x != 0)&#123;</span><br><span class="line">            temp.push_back(x%10);</span><br><span class="line">            x /= 10;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        for(int i = 0; i&lt;temp.size()/2; i++)&#123;</span><br><span class="line">            if(temp[i] != temp[temp.size()-1-i]) return false;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>   result: Runtime: 120 ms, Ranking 99.83%</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/1_leetcode_go/2_Longest_Substring_Without_Repeating_Characters/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -338,6 +469,164 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
 **代码如下**(18ms, 排名99.49%)
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()&#123;ios::sync_with_stdio(false);cin.tie(nullptr);return nullptr;&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int lengthOfLongestSubstring(string s) &#123;</span><br><span class="line">        int mark[256] = &#123;0&#125;, res = 1, left = 1;</span><br><span class="line">        if(s.size() == 0) return 0;</span><br><span class="line">        else mark[s[0]] = 1;</span><br><span class="line">        for(int i=1; i&lt;s.size(); i++)&#123;</span><br><span class="line">            if(mark[s[i]] != 0 &amp;&amp; mark[s[i]]&gt;=left)&#123;</span><br><span class="line">                left=mark[s[i]]+1;</span><br><span class="line">            &#125;</span><br><span class="line">            res = max(res, i-left+2);</span><br><span class="line">            mark[s[i]] = i + 1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/1_leetcode_go/3_Median_of_Two_Sorted_Arrays/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/13/1_leetcode_go/3_Median_of_Two_Sorted_Arrays/" itemprop="url">4. Median of Two Sorted Arrays (Hard)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T22:13:30+08:00">
+                2018-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>There are two sorted arrays **nums1** and **nums2** of size m and n respectively.
+
+Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+
+**Example 1:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">The median is 2.0</span><br></pre></td></tr></table></figure>
+
+**Example 2:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line"></span><br><span class="line">The median is (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
+
+思路：同时对数组一和数组二进行遍历，数组一方向从左到右，数组二从右到左。时间40ms，排名98.62%
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">     ios::sync_with_stdio(false);</span><br><span class="line">     cin.tie(nullptr);</span><br><span class="line">     return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123;</span><br><span class="line">        int left1=0, left2=0, right1=nums1.size()-1, right2=nums2.size()-1;</span><br><span class="line">        if(right1==-1 &amp;&amp; right2==-1) return -1;</span><br><span class="line">        if(right1==-1)&#123;</span><br><span class="line">            if(nums2.size()%2 == 0) return (nums2[nums2.size()/2]+nums2[nums2.size()/2-1])/2.0;</span><br><span class="line">            else return nums2[nums2.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">         if(right2==-1)&#123;</span><br><span class="line">            if(nums1.size()%2 == 0) return (nums1[nums1.size()/2]+nums1[nums1.size()/2-1])/2.0;</span><br><span class="line">            else return nums1[nums1.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">        if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            </span><br><span class="line">            if(nums1[left1]&lt;nums2[left2]) left1 += 1;</span><br><span class="line">            else left2+=1;</span><br><span class="line">            if(nums1[right1]&gt;nums2[right2]) right1 -= 1;</span><br><span class="line">            else right2 -= 1;</span><br><span class="line">            </span><br><span class="line">            if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">            if(left1&gt;right1) &#123;</span><br><span class="line">                if((right2-left2)%2 == 0) return nums2[left2+(right2-left2)/2];</span><br><span class="line">                else return (nums2[left2+(right2-left2)/2]+nums2[left2+(right2-left2)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">            if(left2&gt;right2)&#123;</span><br><span class="line">                if((right1-left1)%2 == 0) return nums1[left1+(right1-left1)/2];</span><br><span class="line">                else return (nums1[left1+(right1-left1)/2]+nums1[left1+(right1-left1)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+​
 </code></pre>
           
         
@@ -504,164 +793,6 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 sync_with_stdio函数：是一个“是否兼容studio&quot;的开关，C++为了兼容C，保证程序在使用了std::print和std::cout的时候不发生混乱，将输出流绑到了一起。首先sync_with_stdio(false)是为了打断iostream输入输出到缓存，可以节约很多时间，使之与scanf相差无几
 
 tie是将两个stream绑定的函数，空参数的话返回当前的输出指针，即tie(0)与tie(nullptr)来解决cin与cout的绑定。
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/1_leetcode_go/3_Median_of_Two_Sorted_Arrays/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/13/1_leetcode_go/3_Median_of_Two_Sorted_Arrays/" itemprop="url">4. Median of Two Sorted Arrays (Hard)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T22:13:30+08:00">
-                2018-06-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>There are two sorted arrays **nums1** and **nums2** of size m and n respectively.
-
-Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
-
-**Example 1:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">The median is 2.0</span><br></pre></td></tr></table></figure>
-
-**Example 2:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line"></span><br><span class="line">The median is (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
-
-思路：同时对数组一和数组二进行遍历，数组一方向从左到右，数组二从右到左。时间40ms，排名98.62%
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">     ios::sync_with_stdio(false);</span><br><span class="line">     cin.tie(nullptr);</span><br><span class="line">     return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123;</span><br><span class="line">        int left1=0, left2=0, right1=nums1.size()-1, right2=nums2.size()-1;</span><br><span class="line">        if(right1==-1 &amp;&amp; right2==-1) return -1;</span><br><span class="line">        if(right1==-1)&#123;</span><br><span class="line">            if(nums2.size()%2 == 0) return (nums2[nums2.size()/2]+nums2[nums2.size()/2-1])/2.0;</span><br><span class="line">            else return nums2[nums2.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">         if(right2==-1)&#123;</span><br><span class="line">            if(nums1.size()%2 == 0) return (nums1[nums1.size()/2]+nums1[nums1.size()/2-1])/2.0;</span><br><span class="line">            else return nums1[nums1.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">        if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            </span><br><span class="line">            if(nums1[left1]&lt;nums2[left2]) left1 += 1;</span><br><span class="line">            else left2+=1;</span><br><span class="line">            if(nums1[right1]&gt;nums2[right2]) right1 -= 1;</span><br><span class="line">            else right2 -= 1;</span><br><span class="line">            </span><br><span class="line">            if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">            if(left1&gt;right1) &#123;</span><br><span class="line">                if((right2-left2)%2 == 0) return nums2[left2+(right2-left2)/2];</span><br><span class="line">                else return (nums2[left2+(right2-left2)/2]+nums2[left2+(right2-left2)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">            if(left2&gt;right2)&#123;</span><br><span class="line">                if((right1-left1)%2 == 0) return nums1[left1+(right1-left1)/2];</span><br><span class="line">                else return (nums1[left1+(right1-left1)/2]+nums1[left1+(right1-left1)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-​
 </code></pre>
           
         
@@ -1922,185 +2053,6 @@ name=None
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/05/3_tools/180205-本地与远程服务器同步文件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/05/3_tools/180205-本地与远程服务器同步文件/" itemprop="url">本地与远程服务器同步文件（scp、rsync、samba，and ...）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-05T23:10:24+08:00">
-                2018-02-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近在进行深度学习训练的时候，遇到一个问题：服务器端的系统一般是没有GUI界面的，这导致在深度学习训练中，要查看网络的训练效果，不得不将图片从服务器端传输到本地进行查看。（网络的好坏也可以通过mIOU、AP等指标来评判，不过可视化能看到更多细节方面的问题）。</p>
-<p>下文总结了本地与远程服务器同步文件的几个解决方案。</p>
-<h2 id="方案1-scp命令"><a href="#方案1-scp命令" class="headerlink" title="方案1: scp命令"></a>方案1: scp命令</h2><blockquote>
-<p>scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。可能会稍微影响一下速度。当你服务器硬盘变为只读 read only system时，用scp可以帮你把文件移出来。另外，scp还非常不占资源，不会提高多少系统负荷，在这一点上，rsync就远远不及它了。虽然 rsync比scp会快一点，但当小文件众多的情况下，rsync会导致硬盘I/O非常高，而scp基本不影响系统正常使用。<a href="http://www.cnblogs.com/peida/archive/2013/03/15/2960802.html" target="_blank" rel="noopener">[链接]</a></p>
-</blockquote>
-<ol>
-<li><p>命令格式：</p>
-<p><code>scp [参数][原路径][目标路径]</code></p>
-</li>
-<li><p>命令参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-1  强制scp命令使用协议ssh1</span><br><span class="line">-2  强制scp命令使用协议ssh2  </span><br><span class="line">-4  强制scp命令只使用IPv4寻址  </span><br><span class="line">-6  强制scp命令只使用IPv6寻址  </span><br><span class="line">-B  使用批处理模式（传输过程中不询问传输口令或短语）  </span><br><span class="line">-C  允许压缩。（将-C标志传递给ssh，从而打开压缩功能）  </span><br><span class="line">-p 保留原文件的修改时间，访问时间和访问权限。  </span><br><span class="line">-q  不显示传输进度条。  </span><br><span class="line">-r  递归复制整个目录。  </span><br><span class="line">-v 详细方式显示输出。scp和ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。 </span><br><span class="line">-c cipher  以cipher将数据传输进行加密，这个选项将直接传递给ssh。   </span><br><span class="line">-F ssh_config  指定一个替代的ssh配置文件，此参数直接传递给ssh。  </span><br><span class="line">-i identity_file  从指定文件中读取传输时使用的密钥文件，此参数直接传递给ssh。    </span><br><span class="line">-l limit  限定用户所能使用的带宽，以Kbit/s为单位。     </span><br><span class="line">-o ssh_option  如果习惯于使用ssh_config(5)中的参数传递方式，   </span><br><span class="line">-P port  注意是大写的P, port是指定数据传输用到的端口号   </span><br><span class="line">-S program  指定加密传输时所使用的程序。此程序必须能够理解ssh(1)的选项。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 从本地复制到服务器</span><br><span class="line">sudo scp -P port local_file remote_username@remote_ip:remote_folder      #复制文件</span><br><span class="line">sudo scp -P port -r local_folder remote_username@remote_ip:remote_folder #复制文件夹</span><br><span class="line"></span><br><span class="line"># 从服务器复制到本地</span><br><span class="line">sudo scp -P port remote_username@remote_ip:remote_file local_folder         #复制文件a.out</span><br><span class="line">sudo scp -P port -r remote_username@remote_ip:remote_folder local_folder    #复制文件夹</span><br><span class="line"></span><br><span class="line">#Windows系统推荐使用Wincp软件进行文件传输</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>缺点</p>
-</li>
-</ol>
-<p>​    采用scp命令自动化程度不高，用起来麻烦，传送速度也比较慢。</p>
-<h2 id="方案2-rsync命令"><a href="#方案2-rsync命令" class="headerlink" title="方案2: rsync命令"></a>方案2: rsync命令</h2><blockquote>
-<p><strong>rsync命令</strong>是一个远程数据同步工具，可通过LAN/WAN快速同步多台主机间的文件。rsync使用所谓的“rsync”算法来使本地和远程两个主机之间的文件达到同步，这个算法只传送两个文件的不同部分，而不是每次都整份传送，因此速度相当快。rsync是一个功能非常强大的工具，其命令也有很多功能特色选项。<a href="http://www.fredshack.com/docs/rsync.html" target="_blank" rel="noopener">链接</a> </p>
-</blockquote>
-<ol>
-<li><p>命令格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SYNOPSIS</span><br><span class="line">       Local:  rsync [OPTION...] SRC... [DEST]</span><br><span class="line"></span><br><span class="line">       Access via remote shell:</span><br><span class="line">         Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST]</span><br><span class="line">         Push: rsync [OPTION...] SRC... [USER@]HOST:DEST</span><br><span class="line"></span><br><span class="line">       Access via rsync daemon:</span><br><span class="line">         Pull: rsync [OPTION...] [USER@]HOST::SRC... [DEST]</span><br><span class="line">               rsync [OPTION...] rsync://[USER@]HOST[:PORT]/SRC... [DEST]</span><br><span class="line">         Push: rsync [OPTION...] SRC... [USER@]HOST::DEST</span><br><span class="line">               rsync [OPTION...] SRC... rsync://[USER@]HOST[:PORT]/DEST</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>命令参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">-v, --verbose 详细模式输出。</span><br><span class="line">-q, --quiet 精简输出模式。</span><br><span class="line">-c, --checksum 打开校验开关，强制对文件传输进行校验。</span><br><span class="line">-a, --archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD。</span><br><span class="line">-r, --recursive 对子目录以递归模式处理。</span><br><span class="line">-R, --relative 使用相对路径信息。</span><br><span class="line">-b, --backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用--suffix选项来指定不同的备份文件前缀。</span><br><span class="line">--backup-dir 将备份文件(如~filename)存放在在目录下。</span><br><span class="line">-suffix=SUFFIX 定义备份文件前缀。</span><br><span class="line">-u, --update 仅仅进行更新，也就是跳过所有已经存在于DST，并且文件时间晚于要备份的文件，不覆盖更新的文件。</span><br><span class="line">-l, --links 保留软链结。</span><br><span class="line">-L, --copy-links 想对待常规文件一样处理软链结。</span><br><span class="line">--copy-unsafe-links 仅仅拷贝指向SRC路径目录树以外的链结。</span><br><span class="line">--safe-links 忽略指向SRC路径目录树以外的链结。</span><br><span class="line">-H, --hard-links 保留硬链结。</span><br><span class="line">-p, --perms 保持文件权限。</span><br><span class="line">-o, --owner 保持文件属主信息。</span><br><span class="line">-g, --group 保持文件属组信息。</span><br><span class="line">-D, --devices 保持设备文件信息。</span><br><span class="line">-t, --times 保持文件时间信息。</span><br><span class="line">-S, --sparse 对稀疏文件进行特殊处理以节省DST的空间。</span><br><span class="line">-n, --dry-run现实哪些文件将被传输。</span><br><span class="line">-w, --whole-file 拷贝文件，不进行增量检测。</span><br><span class="line">-x, --one-file-system 不要跨越文件系统边界。</span><br><span class="line">-B, --block-size=SIZE 检验算法使用的块尺寸，默认是700字节。</span><br><span class="line">-e, --rsh=command 指定使用rsh、ssh方式进行数据同步。</span><br><span class="line">--rsync-path=PATH 指定远程服务器上的rsync命令所在路径信息。</span><br><span class="line">-C, --cvs-exclude 使用和CVS一样的方法自动忽略文件，用来排除那些不希望传输的文件。</span><br><span class="line">--existing 仅仅更新那些已经存在于DST的文件，而不备份那些新创建的文件。</span><br><span class="line">--delete 删除那些DST中SRC没有的文件。</span><br><span class="line">--delete-excluded 同样删除接收端那些被该选项指定排除的文件。</span><br><span class="line">--delete-after 传输结束以后再删除。</span><br><span class="line">--ignore-errors 及时出现IO错误也进行删除。</span><br><span class="line">--max-delete=NUM 最多删除NUM个文件。</span><br><span class="line">--partial 保留那些因故没有完全传输的文件，以是加快随后的再次传输。</span><br><span class="line">--force 强制删除目录，即使不为空。</span><br><span class="line">--numeric-ids 不将数字的用户和组id匹配为用户名和组名。</span><br><span class="line">--timeout=time ip超时时间，单位为秒。</span><br><span class="line">-I, --ignore-times 不跳过那些有同样的时间和长度的文件。</span><br><span class="line">--size-only 当决定是否要备份文件时，仅仅察看文件大小而不考虑文件时间。</span><br><span class="line">--modify-window=NUM 决定文件是否时间相同时使用的时间戳窗口，默认为0。</span><br><span class="line">-T --temp-dir=DIR 在DIR中创建临时文件。</span><br><span class="line">--compare-dest=DIR 同样比较DIR中的文件来决定是否需要备份。</span><br><span class="line">-P 等同于 --partial。</span><br><span class="line">--progress 显示备份过程。</span><br><span class="line">-z, --compress 对备份的文件在传输时进行压缩处理。</span><br><span class="line">--exclude=PATTERN 指定排除不需要传输的文件模式。</span><br><span class="line">--include=PATTERN 指定不排除而需要传输的文件模式。</span><br><span class="line">--exclude-from=FILE 排除FILE中指定模式的文件。</span><br><span class="line">--include-from=FILE 不排除FILE指定模式匹配的文件。</span><br><span class="line">--version 打印版本信息。</span><br><span class="line">--address 绑定到特定的地址。</span><br><span class="line">--config=FILE 指定其他的配置文件，不使用默认的rsyncd.conf文件。</span><br><span class="line">--port=PORT 指定其他的rsync服务端口。</span><br><span class="line">--blocking-io 对远程shell使用阻塞IO。</span><br><span class="line">-stats 给出某些文件的传输状态。</span><br><span class="line">--progress 在传输时现实传输过程。</span><br><span class="line">--log-format=formAT 指定日志文件格式。</span><br><span class="line">--password-file=FILE 从FILE中得到密码。</span><br><span class="line">--bwlimit=KBPS 限制I/O带宽，KBytes per second。</span><br><span class="line">-h, --help 显示帮助信息。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Update host files to local&quot;</span><br><span class="line">rsync -azh --update --progress -e &apos;ssh -p port&apos; $&#123;SSH_USER&#125;@$&#123;SSH_HOST_outside&#125;:$&#123;HOST_PATH&#125; $&#123;LOCAL_PATH&#125;</span><br><span class="line"></span><br><span class="line"># Update local files to host&quot;</span><br><span class="line">rsync -azh --update --progress $&#123;LOCAL_PATH&#125; -e &apos;ssh -p 8221&apos; $&#123;SSH_USER&#125;@$&#123;SSH_HOST_outside&#125;:$&#123;HOST_PATH&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>rsync可以说是相当不错了，可以用于自动备份以及文件自动同步，这点比ssh好很多。有一个问题：rsync命令中单冒号和双冒号作用不同。单冒号启用ssh或rsh服务，双冒号启用rsync服务，不过改成双冒号会出差。看了一些例子，用法如<code>rsync243 -avz joe@linux.acme.com::confidential ./confidential</code>以域名做HOST。</p>
-<p>​</p>
-</li>
-</ol>
-<h2 id="方案3-samba"><a href="#方案3-samba" class="headerlink" title="方案3. samba"></a>方案3. samba</h2><p>听老大说，samba用来做共享文件夹相当好用，网上找了一圈教程，都是Linux与windows之间的共享，并没有Linux系统之间的共享。按道理来说，应该也能配置成Linux之间的，以后有时间再折腾。</p>
-<h2 id="方案4-思考"><a href="#方案4-思考" class="headerlink" title="方案4. 思考"></a>方案4. 思考</h2><p>想想自己写一个共享文件的脚本，也不是很难的。在本地与服务器端各设立一个文件夹用来做共享文件夹，其实本质上是同步两个文件夹间的文件。如何做到同步呢？需要考虑到文件的几个常用的操作——复制、删除、修改、移动。为这两个文件夹各自建立一个文件索引（子目录不需要建立），将每个文件的的操作都记录在这个文件中，根据这两个文件进行文件同步。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2155,7 +2107,7 @@ name=None
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
