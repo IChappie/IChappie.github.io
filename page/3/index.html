@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/26_Predict_the_Winner/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/15_Plus_One/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/26_Predict_the_Winner/" itemprop="url">486. Predict the Winner</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/15_Plus_One/" itemprop="url">66. Plus One</a></h1>
         
 
         <div class="post-meta">
@@ -325,203 +325,29 @@
       
         
           
-            <pre><code>Given an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player picks a number, that number will not be available for the next player. This continues until all the scores have been chosen. The player with the maximum score wins.
+            <pre><code>Given a **non-empty** array of digits representing a non-negative integer, plus one to the integer.
 
-Given an array of scores, predict whether player 1 is the winner. You can assume each player plays to maximize his score.
+The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.
 
-**Example 1:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: [1, 5, 2]</span><br><span class="line">Output: False</span><br><span class="line">Explanation: Initially, player 1 can choose between 1 and 2. </span><br><span class="line">If he chooses 2 (or 1), then player 2 can choose from 1 (or 2) and 5. If player 2 chooses 5, then player 1 will be left with 1 (or 2). </span><br><span class="line">So, final score of player 1 is 1 + 2 = 3, and player 2 is 5. </span><br><span class="line">Hence, player 1 will never be the winner and you need to return False.</span><br></pre></td></tr></table></figure>
-
-**Example 2:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [1, 5, 233, 7]</span><br><span class="line">Output: True</span><br><span class="line">Explanation: Player 1 first chooses 1. Then player 2 have to choose between 5 and 7. No matter which number player 2 choose, player 1 can choose 233.</span><br><span class="line">Finally, player 1 has more score (234) than player 2 (12), so you need to return True representing player1 can win.</span><br></pre></td></tr></table></figure>
-
-**Note:**
-
-1. 1 &lt;= length of the array &lt;= 20.
-2. Any scores in the given array are non-negative integers and will not exceed 10,000,000.
-3. If the scores of both players are equal, then player 1 is still the winner.
-
-这道题一开始还以为会有什么特殊的技巧来处理，自己想了很久也没想出来。后来看了网上的答案，发现是把所有结果都遍历一遍的。处理的方法是递归或动态规划。递归方法如下：
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool PredictTheWinner(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        return canWin(nums, 0, 0, 1);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    bool canWin(vector&lt;int&gt; nums, int sum1, int sum2, int player) &#123;</span><br><span class="line">        if (nums.empty()) return sum1 &gt;= sum2;</span><br><span class="line">        if (nums.size() == 1) &#123;</span><br><span class="line">            if (player == 1) return sum1 + nums[0] &gt;= sum2;</span><br><span class="line">            else if (player == 2) return sum2 + nums[0] &gt; sum1;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;int&gt; va = vector&lt;int&gt;(nums.begin() + 1, nums.end());</span><br><span class="line">        vector&lt;int&gt; vb = vector&lt;int&gt;(nums.begin(), nums.end() - 1);</span><br><span class="line">        if (player == 1) &#123;</span><br><span class="line">            return !canWin(va, sum1 + nums[0], sum2, 2) || !canWin(vb, sum1 + nums.back(), sum2, 2);</span><br><span class="line">        &#125; else if (player == 2) &#123;</span><br><span class="line">            return !canWin(va, sum1, sum2 + nums[0], 1) || !canWin(vb, sum1, sum2 + nums.back(), 1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-结果：40ms,20.47%。效率不是很高。递归效率低的原因在于重复计算。因此可以通过保存中间结果，再次遇到相同情况时直接返回不用再次计算，提高了运算效率。代码从网上找了，代码如下。但仍看不懂中间结果是什么意思。另外找了一段：假设所有分数的总和为sum，那么最后一定是玩家1选择了一部分，玩家2选择了另外一部分，我们只需要玩家1的分数大于玩家2就可以了，那么可以想象成，每次玩家1选择了一个分数，就是加一个分数，轮到玩家2选择时，就是减去一个分数，判断最后剩下的数字的正负就可以知道玩家1是否赢了。我们另外创建一个函数，用来递归计算每次的加分数和减分数，最终值的正负就是赢与否，注意题目说分数相等也是玩家1赢，所以最后如果等于0，也是玩家1赢。
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool PredictTheWinner(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int n = nums.size();</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; dp(n, vector&lt;int&gt;(n, -1));</span><br><span class="line">        return canWin(nums, 0, n - 1, dp) &gt;= 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int canWin(vector&lt;int&gt;&amp; nums, int s, int e, vector&lt;vector&lt;int&gt;&gt;&amp; dp) &#123;</span><br><span class="line">        if (dp[s][e] == -1) &#123;</span><br><span class="line">            dp[s][e] = (s == e) ? nums[s] : max(nums[s] - canWin(nums, s + 1, e, dp), nums[e] - canWin(nums, s, e - 1, dp));</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[s][e];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-代码解释：
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dp[s][e] = (s == e) ? nums[s] : max(nums[s] - canWin(nums, s + 1, e, dp), nums[e] - canWin(nums, s, e - 1, dp))</span><br><span class="line"></span><br><span class="line">当s等于e时，递归的末端，只有一个数，玩家1与玩家2相减的数等于这个数；</span><br><span class="line">当s不等于e时，玩家1选择nums[s]，则玩家2在剩余数组中进行选择（递归）。采用max函数限定递归返回最大值。</span><br><span class="line">因此，canWin函数的作用是递归计算加分数；dp数组的作用是存储某区间内的最优加分数。</span><br></pre></td></tr></table></figure>
-
-结果：0ms， 100%.效率提升相当明显。
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/12_Implement_strStr()/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/12_Implement_strStr()/" itemprop="url">28. Implement strStr()</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>Implement [strStr()](http://www.cplusplus.com/reference/cstring/strstr/).
-
-Return the index of the first occurrence of needle in haystack, or **-1** if needle is not part of haystack.
+You may assume the integer does not contain any leading zero, except the number 0 itself.
 
 **Example 1:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;hello&quot;, needle = &quot;ll&quot;</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3]</span><br><span class="line">Output: [1,2,4]</span><br><span class="line">Explanation: The array represents the integer 123.</span><br></pre></td></tr></table></figure>
 
 **Example 2:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [4,3,2,1]</span><br><span class="line">Output: [4,3,2,2]</span><br><span class="line">Explanation: The array represents the integer 4321.</span><br></pre></td></tr></table></figure>
 
-**Clarification:**
+思路：从后往前遍历，加一，满十进一，当不满十时，即可马上终止。代码如下
 
-What should we return when `needle` is an empty string? This is a great question to ask during an interview.
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) &#123;</span><br><span class="line">    </span><br><span class="line">        digits[digits.size() - 1] += 1;</span><br><span class="line">        </span><br><span class="line">        for (int i = digits.size() - 1; i &gt; 0; i--)&#123;</span><br><span class="line">            </span><br><span class="line">            if (digits[i] &gt; 9) &#123;</span><br><span class="line">                digits[i] = 0;</span><br><span class="line">                digits[i - 1] += 1;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                return digits;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if (digits[0] &gt; 9)&#123;</span><br><span class="line">            digits[0] = 0;</span><br><span class="line">            digits.insert(digits.begin(), 1);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-For the purpose of this problem, we will return 0 when `needle` is an empty string. This is consistent to C&apos;s [strstr()](http://www.cplusplus.com/reference/cstring/strstr/) and Java&apos;s [indexOf()](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#indexOf(java.lang.String)).
+Res. 0ms, Ranking 100.100%. 查了一下最快的算法，如下，采用除余与整除的方法。
 
-思路：双循环遍历，即可。代码如下。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) &#123;</span><br><span class="line">        int adder = 1;</span><br><span class="line">        for (int i = digits.size() - 1; i &gt;= 0; i--)&#123;</span><br><span class="line">            int n = digits[i] + adder;</span><br><span class="line">            digits[i] = n % 10;</span><br><span class="line">            adder = n / 10;</span><br><span class="line">            if (adder == 0)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (adder == 0)&#123;</span><br><span class="line">            return digits;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            digits.insert(digits.begin(), 1);</span><br><span class="line">            return digits;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int strStr(string haystack, string needle) &#123;</span><br><span class="line">        if (needle.size() == 0) return 0;</span><br><span class="line">        if (needle.size() &gt; haystack.size()) return -1;</span><br><span class="line">        </span><br><span class="line">        for (int i = 0; i &lt; haystack.size() - needle.size() + 1; i++) &#123;</span><br><span class="line">            int j = 0;</span><br><span class="line">            for (; j &lt; needle.size(); j++) &#123;</span><br><span class="line">                if ( haystack[i + j] != needle[j])  </span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            if (j == needle.size()) return i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-Res. Runtime: 4 ms, Ranking 99.97%.
-
-加上控制输入输出的语句后，Runtime: 0 ms, Ranking 100%
+虽然写法更为简洁，但出发和除余的操作显然会比加减更耗资源，因此上面的解法是较优解法。
 </code></pre>
           
         
@@ -726,7 +552,7 @@ Res. 4ms, Ranking 100.00%.
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/13_Search_Insert_Position/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/16_Add_Binary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -745,7 +571,7 @@ Res. 4ms, Ranking 100.00%.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/13_Search_Insert_Position/" itemprop="url">35. Search Insert Position</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/16_Add_Binary/" itemprop="url">67. Add Binary</a></h1>
         
 
         <div class="post-meta">
@@ -819,35 +645,27 @@ Res. 4ms, Ranking 100.00%.
       
         
           
-            <pre><code>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+            <pre><code>Given two binary strings, return their sum (also a binary string).
 
-You may assume no duplicates in the array.
+The input strings are both **non-empty** and contains only characters `1` or `0`.
 
 **Example 1:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 5</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: a = &quot;11&quot;, b = &quot;1&quot;</span><br><span class="line">Output: &quot;100&quot;</span><br></pre></td></tr></table></figure>
 
 **Example 2:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 2</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: a = &quot;1010&quot;, b = &quot;1011&quot;</span><br><span class="line">Output: &quot;10101&quot;</span><br></pre></td></tr></table></figure>
 
-**Example 3:**
+思路（copy）：下面这种写法又巧妙又简洁，用了两个指针分别指向a和b的末尾，然后每次取出一个字符，转为数字，若无法取出字符则按0处理，然后定义进位carry，初始化为0，将三者加起来，对2取余即为当前位的数字，对2取商即为当前进位的值，记得最后还要判断下carry，如果为1的话，要在结果最前面加上一个1，参见代码如下：
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 7</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string addBinary(string a, string b) &#123;</span><br><span class="line">        string res = &quot;&quot;;</span><br><span class="line">        int m = a.size() - 1, n = b.size() - 1, carry = 0;</span><br><span class="line">        while (m &gt;= 0 || n &gt;= 0) &#123;</span><br><span class="line">            int p = m &gt;= 0 ? a[m--] - &apos;0&apos; : 0;</span><br><span class="line">            int q = n &gt;= 0 ? b[n--] - &apos;0&apos; : 0;</span><br><span class="line">            int sum = p + q + carry;</span><br><span class="line">            res = to_string(sum % 2) + res;</span><br><span class="line">            carry = sum / 2;</span><br><span class="line">        &#125;</span><br><span class="line">        return carry == 1 ? &quot;1&quot; + res : res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-**Example 4:**
+Res. 4ms, Ranking 97.16%.改进的写法，更快了。
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 0</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string addBinary(string a, string b) &#123;</span><br><span class="line">        string c;</span><br><span class="line">        int carry = 0, i = a.size()-1, j = b.size()-1;</span><br><span class="line">        while(i&gt;=0 || j&gt;=0 || carry!=0)&#123;</span><br><span class="line">            carry += (i&gt;=0? a[i--]-&apos;0&apos;:0);</span><br><span class="line">            carry += (j&gt;=0? b[j--]-&apos;0&apos;:0);</span><br><span class="line">            c = c + (char)(carry%2+&apos;0&apos;);</span><br><span class="line">            carry /= 2;</span><br><span class="line">        &#125;</span><br><span class="line">        reverse( c.begin(), c.end());</span><br><span class="line">        return c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-思路：遍历数组，为目标数字找到合适的位置。代码如下：
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">static const auto ___ = []()</span><br><span class="line">&#123;</span><br><span class="line">	ios::sync_with_stdio(false);</span><br><span class="line">	cin.tie(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        </span><br><span class="line">        if (nums.size() == 0) return 0; </span><br><span class="line">        if (nums[nums.size() - 1] &lt; target) return nums.size();</span><br><span class="line">        //if (nums[nums.size() - 1] == target) return nums.size() - 1;</span><br><span class="line">        if (nums[0] &gt;= target) return 0;</span><br><span class="line">        </span><br><span class="line">        for (int i = 0; i &lt; nums.size() - 1; i++) &#123;</span><br><span class="line">            if (nums[i] &lt; target &amp;&amp; nums[i + 1] &gt;= target) return i+1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-没有加神奇代码时，Runtime 4ms，Ranking 99.8%。采用神奇代码后，Runtime 0ms，Ranking 100%.
-
-突然发现可以用二分法来做，能大大的减少时间。看了一下排名第一的算法，也是用二分法，可能测试用例太少的原因，没有跟其他算法区分开。代码如下. copy~~~~
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">static const auto ___ = []()</span><br><span class="line">&#123;</span><br><span class="line">	ios::sync_with_stdio(false);</span><br><span class="line">	cin.tie(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;();</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        if (nums.size() == 0) return 0;</span><br><span class="line">        </span><br><span class="line">        int x = 0;</span><br><span class="line">        int y = nums.size();</span><br><span class="line">        int mid = (x+y)/2;</span><br><span class="line">        </span><br><span class="line">                </span><br><span class="line">        if (nums[x] &gt; target) return 0;</span><br><span class="line">        </span><br><span class="line">        if (nums[y-1] &lt; target) return y;</span><br><span class="line">        </span><br><span class="line">        while(x &lt;= y) &#123;</span><br><span class="line">            if (nums[mid] == target) return mid;</span><br><span class="line">            </span><br><span class="line">            if (nums[mid] &lt; target) x = mid + 1;</span><br><span class="line">            </span><br><span class="line">            if (nums[mid] &gt; target) y = mid - 1;          </span><br><span class="line">            </span><br><span class="line">            mid = (x+y)/2;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+Res. 0ms, Ranking 100.100%
 </code></pre>
           
         
@@ -1012,6 +830,171 @@ Res. Runtimes: 4ms, Ranking 100.00%
 丧心病狂的解法，三行搞定！
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        if (!l1 || (l2 &amp;&amp; l1-&gt;val &gt; l2-&gt;val)) swap(l1, l2);</span><br><span class="line">        if (l1) l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);</span><br><span class="line">        return l1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/25_Pow(x,n)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/25_Pow(x,n)/" itemprop="url">50. Pow(x, n)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>Implement [pow(*x*, *n*)](http://www.cplusplus.com/reference/valarray/pow/), which calculates *x* raised to the power *n* (xn).
+
+**Example 1:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 2.00000, 10</span><br><span class="line">Output: 1024.00000</span><br></pre></td></tr></table></figure>
+
+**Example 2:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 2.10000, 3</span><br><span class="line">Output: 9.26100</span><br></pre></td></tr></table></figure>
+
+**Example 3:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 2.00000, -2</span><br><span class="line">Output: 0.25000</span><br><span class="line">Explanation: 2-2 = 1/22 = 1/4 = 0.25</span><br></pre></td></tr></table></figure>
+
+**Note:**
+
+- -100.0 &lt; *x* &lt; 100.0
+- *n* is a 32-bit signed integer, within the range [−2^31, 2^31 − 1]
+
+思路：原以为是如何处理大数问题，因为感觉n的值为有符号的整数，会是一个大数。看别人写的代码，采用double来存储x的数值。double的范围在+/- 1.7e +/-308，如果而n和x分别采用最大值，即x=100, n=2.1*10^9， 则pow(x, n) = 10e10^9，应该是远超double的范围了。但是代码是能通过OJ的，不知道为什么。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double myPow(double x, int n) &#123;</span><br><span class="line">        if (n &lt; 0) return 1 / power(x, -n);</span><br><span class="line">        return power(x, n);</span><br><span class="line">    &#125;</span><br><span class="line">    double power(double x, int n) &#123;</span><br><span class="line">        if (n == 0) return 1;</span><br><span class="line">        double half = power(x, n / 2);</span><br><span class="line">        if (n % 2 == 0) return half * half;</span><br><span class="line">        return x * half * half;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+结果：4ms， 98.54%
 </code></pre>
           
         
