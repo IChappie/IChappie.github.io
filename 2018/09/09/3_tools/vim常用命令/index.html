@@ -88,7 +88,7 @@
 <meta property="og:description" content="vi/vim的使用vi/vim共分为三种模式，分别是命令模式(Command mode)，输入模式(Insert mode)和底线命令模式(Last Line mode)。这三种模式的作用分别是： #####命令模式 启动vi/vim即进入命令模式。此状态下敲击键盘动作会被vim识别为命令。 常用的几个命令：  i切换到插入模式，以输入字符。 x删除当前光标所在处的字符。 :切换到底线命令模式，以">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p69513dvb.bkt.clouddn.com/images/vim-vi-workmodel.png">
-<meta property="og:updated_time" content="2018-09-09T05:07:23.946Z">
+<meta property="og:updated_time" content="2018-09-12T13:28:22.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim常用命令">
 <meta name="twitter:description" content="vi/vim的使用vi/vim共分为三种模式，分别是命令模式(Command mode)，输入模式(Insert mode)和底线命令模式(Last Line mode)。这三种模式的作用分别是： #####命令模式 启动vi/vim即进入命令模式。此状态下敲击键盘动作会被vim识别为命令。 常用的几个命令：  i切换到插入模式，以输入字符。 x删除当前光标所在处的字符。 :切换到底线命令模式，以">
@@ -327,6 +327,11 @@
 <p>按<strong>ESC</strong>键可随时退出底线命令模式。</p>
 <p>vi/vim工作模式：</p>
 <img title="vi/vim工作模式" alt="vi/vim工作模式" src="http://p69513dvb.bkt.clouddn.com/images/vim-vi-workmodel.png">
+<h5 id="普通用户如何保存编辑过的read-only-文件"><a href="#普通用户如何保存编辑过的read-only-文件" class="headerlink" title="普通用户如何保存编辑过的read-only 文件"></a>普通用户如何保存编辑过的read-only 文件</h5><p>有时候，打开文件编辑一通之后，却发现只有只读权限，无法保存编辑操作，难道要改变权限后再重新编辑一遍吗？No way！！执行如下命令即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w !sudo tee %</span><br></pre></td></tr></table></figure>
+<p>命令解释：</p>
+<p>参照：<a href="http://feihu.me/blog/2014/vim-write-read-only-file/" target="_blank" rel="noopener">http://feihu.me/blog/2014/vim-write-read-only-file/</a></p>
+<p>有时间再更新</p>
 <ul>
 <li><h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4></li>
 </ul>
@@ -457,7 +462,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -528,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#vi-vim的使用"><span class="nav-number">1.</span> <span class="nav-text">vi/vim的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入模式"><span class="nav-number">1.1.</span> <span class="nav-text">输入模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#底线命令模式"><span class="nav-number">1.2.</span> <span class="nav-text">底线命令模式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考："><span class="nav-number">2.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#vi-vim的使用"><span class="nav-number">1.</span> <span class="nav-text">vi/vim的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入模式"><span class="nav-number">1.1.</span> <span class="nav-text">输入模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#底线命令模式"><span class="nav-number">1.2.</span> <span class="nav-text">底线命令模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#普通用户如何保存编辑过的read-only-文件"><span class="nav-number">1.3.</span> <span class="nav-text">普通用户如何保存编辑过的read-only 文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考："><span class="nav-number">2.</span> <span class="nav-text">参考：</span></a></li></ol></div>
             
 
           </div>

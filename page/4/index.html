@@ -232,6 +232,318 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/1_leetcode_go/2_Longest_Substring_Without_Repeating_Characters/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/23/1_leetcode_go/2_Longest_Substring_Without_Repeating_Characters/" itemprop="url">3. Longest Substring Without Repeating Characters (Medium)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-23T22:11:22+08:00">
+                2018-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>Given a string, find the length of the longest substring without repeating characters.
+
+**Examples**:
+
+Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.
+
+Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.
+
+Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
+
+**代码如下**(18ms, 排名99.49%)
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()&#123;ios::sync_with_stdio(false);cin.tie(nullptr);return nullptr;&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int lengthOfLongestSubstring(string s) &#123;</span><br><span class="line">        int mark[256] = &#123;0&#125;, res = 1, left = 1;</span><br><span class="line">        if(s.size() == 0) return 0;</span><br><span class="line">        else mark[s[0]] = 1;</span><br><span class="line">        for(int i=1; i&lt;s.size(); i++)&#123;</span><br><span class="line">            if(mark[s[i]] != 0 &amp;&amp; mark[s[i]]&gt;=left)&#123;</span><br><span class="line">                left=mark[s[i]]+1;</span><br><span class="line">            &#125;</span><br><span class="line">            res = max(res, i-left+2);</span><br><span class="line">            mark[s[i]] = i + 1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/1_leetcode_go/3_Median_of_Two_Sorted_Arrays/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/13/1_leetcode_go/3_Median_of_Two_Sorted_Arrays/" itemprop="url">4. Median of Two Sorted Arrays (Hard)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T22:13:30+08:00">
+                2018-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>There are two sorted arrays **nums1** and **nums2** of size m and n respectively.
+
+Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+
+**Example 1:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">The median is 2.0</span><br></pre></td></tr></table></figure>
+
+**Example 2:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line"></span><br><span class="line">The median is (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
+
+思路：同时对数组一和数组二进行遍历，数组一方向从左到右，数组二从右到左。时间40ms，排名98.62%
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">static const auto _____ = []()</span><br><span class="line">&#123;</span><br><span class="line">     ios::sync_with_stdio(false);</span><br><span class="line">     cin.tie(nullptr);</span><br><span class="line">     return nullptr;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123;</span><br><span class="line">        int left1=0, left2=0, right1=nums1.size()-1, right2=nums2.size()-1;</span><br><span class="line">        if(right1==-1 &amp;&amp; right2==-1) return -1;</span><br><span class="line">        if(right1==-1)&#123;</span><br><span class="line">            if(nums2.size()%2 == 0) return (nums2[nums2.size()/2]+nums2[nums2.size()/2-1])/2.0;</span><br><span class="line">            else return nums2[nums2.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">         if(right2==-1)&#123;</span><br><span class="line">            if(nums1.size()%2 == 0) return (nums1[nums1.size()/2]+nums1[nums1.size()/2-1])/2.0;</span><br><span class="line">            else return nums1[nums1.size()/2];</span><br><span class="line">        &#125;</span><br><span class="line">        if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            </span><br><span class="line">            if(nums1[left1]&lt;nums2[left2]) left1 += 1;</span><br><span class="line">            else left2+=1;</span><br><span class="line">            if(nums1[right1]&gt;nums2[right2]) right1 -= 1;</span><br><span class="line">            else right2 -= 1;</span><br><span class="line">            </span><br><span class="line">            if(left1==right1 &amp;&amp; left2==right2) return (nums1[left1]+nums2[right2])/2.0;</span><br><span class="line">            if(left1&gt;right1) &#123;</span><br><span class="line">                if((right2-left2)%2 == 0) return nums2[left2+(right2-left2)/2];</span><br><span class="line">                else return (nums2[left2+(right2-left2)/2]+nums2[left2+(right2-left2)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">            if(left2&gt;right2)&#123;</span><br><span class="line">                if((right1-left1)%2 == 0) return nums1[left1+(right1-left1)/2];</span><br><span class="line">                else return (nums1[left1+(right1-left1)/2]+nums1[left1+(right1-left1)/2+1])/2.0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+​
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/1_leetcode_go/1_Add_Two_Numbers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1789,182 +2101,11 @@ name=None
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/14/2_carpediem/180114无问西东观后感/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/14/2_carpediem/180114无问西东观后感/" itemprop="url">电影《无问西东》观后感</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-14T22:41:30+08:00">
-                2018-01-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随想/" itemprop="url" rel="index">
-                    <span itemprop="name">随想</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>冲着大家刷朋友圈的态度，昨天就跟李小姐去看了《无问西东》。看之前对电影是抵触的，毕竟片中有晓明同学。结果，看完后我俩都被触动了。</p>
-<p>摘录电影中的句子，以后慢慢品味。</p>
-<ol>
-<li>无问西东，只问自由，只问盛放，只问深情，只问初心，只问敢勇，无问西东。</li>
-<li>愿你在被打击时 记起你的珍贵 抵抗恶意<br>愿你在迷茫时 坚信你的珍贵<br>爱你所爱 行你所行 听从你心 无问东西</li>
-<li>这个世界缺的不是完美的人，而是从心底给出的真心，正义，无畏与同情。</li>
-<li>把自己交给繁忙，得到的是踏实，却不是真实。</li>
-<li>爱你所爱，无问西东。</li>
-<li>什么是真实，做什么和谁在一起，你看到什么听到什么，有一种从心灵深处满溢出来的不懊悔也不羞耻的平和与喜悦。</li>
-<li>不要放弃，对自己的思索，对自己的真实。</li>
-<li>如果你们提前了解了，你们要面对的人生，你们是否有勇气前来。</li>
-<li>何必执着，刻骨不过空欢喜。</li>
-<li>你别怕，我就是那个给你托底的人，我会跟你一起往下掉。不管掉得有多深，我都会在下面给你托着。我最怕的是，掉的时候你把我推开，不让我给你托着。</li>
-<li>当初你离家千里，来到这个地方读书，你父亲和我都没有反对过，因为，是我们想你，能享受到人生的乐趣，比如读万卷书行万里路，比如同你喜欢的女孩子结婚生子。注意不是给我增添子孙；而是你自己，能够享受为人父母的乐趣，你一生所要追求的功名利率，没有什么是你的祖上没经历过的，那些只不过是人生的幻光。我怕，你还没想好怎么过的这一生，你的命就没了啊！</li>
-<li>你怪她不对你真实，可你给她真实的力量了吗？</li>
-<li>逝者已矣，生者如斯 致珍贵的你</li>
-<li>“世俗这样强大，强大到生不出改变它们的念头来。可是无论外界的社会如何跌宕起伏，都对自己真诚，坚守原则。内心没有了杂念和疑问，才能勇往直前。</li>
-<li>你的忙碌缺乏真实。</li>
-<li>什么是真实。你看到什么，听到什么，做什么和谁一起 有一种 从心灵深处 满溢出来的不懊悔 也不羞耻的平和 与喜悦</li>
-<li>你想好怎么过这一生了吗？</li>
-<li>你所能得到的名利光荣，祖上早就有了。妈妈只希望你过上自己想要的幸福生活，平安。</li>
-<li>当初是你说你会对我好一辈子。当初 当初人就不能变吗？人为什么不可以变！为什么？其他的事情都可以变而这件事情就不能变。</li>
-<li>我们想你能够享受到人生的乐趣，比如同你自己 喜欢的女孩子结婚生子，注意不是给我增添子孙，而是你自己能够享受为人父母的乐趣。</li>
-<li>陈鹏，上一次，我以为我死了，可我醒来看到的是你，是你的爱拖住了我。这一次换我来找你，去照顾你。</li>
-<li>不是华北之大容不下一张平静的课桌，而是整个国家都危亡了，我们要去当兵。</li>
-<li>“这个时代缺的不是完美的人，缺的是从心里给出的真心、正义、无畏和同情。”</li>
-<li>“我不希望你去追求什么光宗耀祖，这些祖宗已经追求到了。我只希望你能细细想清楚你的一生要如何去度过；我希望你能找到一个一生挚爱的人，能尝到儿孙之乐。这些都是为你，不是为我。”</li>
-<li>你还没想好怎么过的这一生，你就连命都没了。</li>
-<li>看到和听到的，经常会令你们沮丧，世俗是这样强大，强大到生不出改变它们的念头来。可是如果有机会提前了解了你们的人生，知道青春也不过是只有这些日子，不知你们是否还会在意那些世俗希望你们在意的事情。<br>愿你在被打击时，记起你的珍贵，抵抗恶意；愿你在迷茫时，坚定你的珍贵，爱你所爱，行你所行，听从你心，无问西东。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2014,7 +2155,7 @@ name=None
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
