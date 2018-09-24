@@ -344,6 +344,7 @@
 <ol>
 <li><p>提前计划</p>
 <p>每天、每周开始之前，拿出一点时间做个计划，将大事分解成具体的任务。</p>
+<p>【转】<a href="https://zhuanlan.zhihu.com/p/26167325" target="_blank" rel="noopener">跟哈佛学时间管理：让你一天拥有48小时</a></p>
 </li>
 </ol>
 
@@ -2061,7 +2062,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/17_Sqrt(x)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/13_Search_Insert_Position/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -2080,7 +2081,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/17_Sqrt(x)/" itemprop="url">69. Sqrt(x)</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/13_Search_Insert_Position/" itemprop="url">35. Search Insert Position</a></h1>
         
 
         <div class="post-meta">
@@ -2154,19 +2155,35 @@
       
         
           
-            <pre><code>Implement `int sqrt(int x)`.
+            <pre><code>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
-Compute and return the square root of *x*, where *x* is guaranteed to be a non-negative integer.
-
-Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
+You may assume no duplicates in the array.
 
 **Example 1:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 4</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 5</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
 
 **Example 2:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: 8</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The square root of 8 is 2.82842..., and since </span><br><span class="line">             the decimal part is truncated, 2 is returned.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 2</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+
+**Example 3:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 7</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
+
+**Example 4:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 0</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
+
+思路：遍历数组，为目标数字找到合适的位置。代码如下：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">static const auto ___ = []()</span><br><span class="line">&#123;</span><br><span class="line">	ios::sync_with_stdio(false);</span><br><span class="line">	cin.tie(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        </span><br><span class="line">        if (nums.size() == 0) return 0; </span><br><span class="line">        if (nums[nums.size() - 1] &lt; target) return nums.size();</span><br><span class="line">        //if (nums[nums.size() - 1] == target) return nums.size() - 1;</span><br><span class="line">        if (nums[0] &gt;= target) return 0;</span><br><span class="line">        </span><br><span class="line">        for (int i = 0; i &lt; nums.size() - 1; i++) &#123;</span><br><span class="line">            if (nums[i] &lt; target &amp;&amp; nums[i + 1] &gt;= target) return i+1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+没有加神奇代码时，Runtime 4ms，Ranking 99.8%。采用神奇代码后，Runtime 0ms，Ranking 100%.
+
+突然发现可以用二分法来做，能大大的减少时间。看了一下排名第一的算法，也是用二分法，可能测试用例太少的原因，没有跟其他算法区分开。代码如下. copy~~~~
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">static const auto ___ = []()</span><br><span class="line">&#123;</span><br><span class="line">	ios::sync_with_stdio(false);</span><br><span class="line">	cin.tie(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;();</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        if (nums.size() == 0) return 0;</span><br><span class="line">        </span><br><span class="line">        int x = 0;</span><br><span class="line">        int y = nums.size();</span><br><span class="line">        int mid = (x+y)/2;</span><br><span class="line">        </span><br><span class="line">                </span><br><span class="line">        if (nums[x] &gt; target) return 0;</span><br><span class="line">        </span><br><span class="line">        if (nums[y-1] &lt; target) return y;</span><br><span class="line">        </span><br><span class="line">        while(x &lt;= y) &#123;</span><br><span class="line">            if (nums[mid] == target) return mid;</span><br><span class="line">            </span><br><span class="line">            if (nums[mid] &lt; target) x = mid + 1;</span><br><span class="line">            </span><br><span class="line">            if (nums[mid] &gt; target) y = mid - 1;          </span><br><span class="line">            </span><br><span class="line">            mid = (x+y)/2;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </code></pre>
           
         
