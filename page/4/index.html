@@ -232,6 +232,187 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/8_Valid_Parentheses/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/8_Valid_Parentheses/" itemprop="url">20. Valid Parentheses</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T12:13:30+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>Given a string containing just the characters `&apos;(&apos;`, `&apos;)&apos;`, `&apos;{&apos;`, `&apos;}&apos;`, `&apos;[&apos;` and `&apos;]&apos;`, determine if the input string is valid.
+
+An input string is valid if:
+
+1. Open brackets must be closed by the same type of brackets.
+2. Open brackets must be closed in the correct order.
+
+Note that an empty string is also considered valid.
+
+**Example 1:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;()&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+
+**Example 2:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;()[]&#123;&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+
+**Example 3:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;(]&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
+
+**Example 4:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;([)]&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
+
+**Example 5:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;&#123;[]&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+
+思路：建立一个map，将小括号、中括号、大括号的左右分别对应起来。遍历字符串，当遇到右括号时，建立新的循环，向左遍历，如果遍历过，继续向左，否则判断是否为对应的左括号，如果为否，则返回false，如果为是，则遍历flag置为true，结束二级遍历，继续向右进行遍历。当遍历结束，判断遍历flag是否全为true，如果为是，则返回true，否则返回false。代码如下：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">static int x=[]()&#123;</span><br><span class="line">        std::ios::sync_with_stdio(false);</span><br><span class="line">        cin.tie(NULL);</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isValid(string s) &#123;</span><br><span class="line">        if(s.length() == 0) return true;</span><br><span class="line">        if(s.length()%2 == 1) return false;</span><br><span class="line">        </span><br><span class="line">        bool arr[s.length()] = &#123;false&#125;;</span><br><span class="line">        map&lt;char, char&gt; mapBrack;</span><br><span class="line">        mapBrack[&apos;)&apos;] = &apos;(&apos;;</span><br><span class="line">        mapBrack[&apos;]&apos;] = &apos;[&apos;;</span><br><span class="line">        mapBrack[&apos;&#125;&apos;] = &apos;&#123;&apos;;</span><br><span class="line">        </span><br><span class="line">        for(int i=1; i&lt;s.length(); i++)&#123;</span><br><span class="line">            if(mapBrack.find(s[i]) != mapBrack.end())&#123;</span><br><span class="line">                arr[i] = true; </span><br><span class="line">                for(int j=i-1; j&gt;=0; j--)&#123;</span><br><span class="line">                    if(arr[j] == true)&#123; continue; &#125; </span><br><span class="line">                    else if(arr[j]==false &amp;&amp; mapBrack[s[i]]==s[j])&#123; arr[j] = true; break; &#125;</span><br><span class="line">                    else&#123; return false; &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        for(int i=0; i&lt;s.length(); i++)&#123;</span><br><span class="line">            if(arr[i]==false) return false;</span><br><span class="line">            else&#123; continue; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return true;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Res. Runtimes: 8ms, Ranking 3.90%.
+
+Why？ 这么靠后？一定有更好的解法。。。看到排名第一的解法，原来是使用栈啊，先进后出，搜嘎。代码如下：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isValid(string s) &#123;</span><br><span class="line">        if (s.size() == 0) return true;</span><br><span class="line">        if (s.size() % 2 == 1) return false;</span><br><span class="line">        </span><br><span class="line">        stack&lt;int&gt; stk;</span><br><span class="line">        map&lt;char, char&gt; mapBrack;</span><br><span class="line">        int i = 0;</span><br><span class="line">        mapBrack[&apos;)&apos;] = &apos;(&apos;;</span><br><span class="line">        mapBrack[&apos;]&apos;] = &apos;[&apos;;</span><br><span class="line">        mapBrack[&apos;&#125;&apos;] = &apos;&#123;&apos;;</span><br><span class="line">        </span><br><span class="line">        while (i &lt; s.size()) &#123;</span><br><span class="line">            if (mapBrack.find(s[i]) != mapBrack.end()) &#123;</span><br><span class="line">                if (!stk.empty() &amp;&amp; stk.top() == mapBrack[s[i]]) &#123;</span><br><span class="line">                    stk.pop();</span><br><span class="line">                    i++;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                stk.push(s[i]);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (!stk.empty()) return false;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Res. Runtime: 0 ms,  Ranking 100%。 数据结构很重要啊！
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/1_leetcode_go/6_Roman_to_Integer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1574,179 +1755,6 @@ tie是将两个stream绑定的函数，空参数的话返回当前的输出指�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/3_tools/180416远程访问tensorboard和visdom/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/17/3_tools/180416远程访问tensorboard和visdom/" itemprop="url">远程访问tensorboard和visdom</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-17T00:27:30+08:00">
-                2018-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>tensorboard</strong> 和<strong>visdom</strong>是功能强大的两款可视化工具，极大地方便了深度学习的训练。在<strong>服务器</strong>端训练深度学习网络的时候，我们往往需要在<strong>本地端</strong>查看网络的训练情况。下面介绍下如何远程访问可视化工具。</p>
-<h4 id="远程访问tensorboard"><a href="#远程访问tensorboard" class="headerlink" title="远程访问tensorboard"></a>远程访问tensorboard</h4><ol>
-<li><p>使用如下命令<strong>登录服务器</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 16006:127.0.0.1:6006 account@server.address</span><br><span class="line"># 表示将本地的16006端口，绑定服务器的6006端口。tensorboard默认将数据放在6006端口。ssh链接建立后，服务器6006端口接收到的数据会转发到本地16006端口。当然，也可以选择16006以外的端口建立ssh链接。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>服务器</strong>端输入如下命令打开tensorboard：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir=&quot;/path/to/log-directory&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最后，<strong>本地</strong>访问地址: <a href="http://127.0.0.1:16006/即可远程访问tensorboard" target="_blank" rel="noopener">http://127.0.0.1:16006/即可远程访问tensorboard</a>.</p>
-</li>
-</ol>
-<h4 id="远程访问visdom"><a href="#远程访问visdom" class="headerlink" title="远程访问visdom"></a>远程访问visdom</h4><ol>
-<li><p><strong>服务器端</strong>安装visdom</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install visdom</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>服务器端</strong>启动visdom</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m visdom.server -p 2333</span><br><span class="line"># -p参数指定端口，缺省值为8097，这里，我们指定2333端口</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>visdom实例代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># demo.py</span><br><span class="line">import visdom</span><br><span class="line">import numpy as np</span><br><span class="line">vis = visdom.Visdom(port=2333,env=&apos;example&apos;)  //port缺省值为8097，env缺省值为&apos;main&apos;</span><br><span class="line">vis.text(&apos;Hello, world!&apos;)</span><br><span class="line">vis.image(np.ones((3, 10, 10)))</span><br></pre></td></tr></table></figure>
-<p>运行 代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python demo.py</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地通过浏览器访问远程服务器</p>
-<p>假设服务器的ip地址为10.21.21.21，则打开浏览器打开 <em><a href="http://10.21.21.21:2333" target="_blank" rel="noopener">http://10.21.21.21:2333</a></em>即可看到visdom可视化界面（默认端口为<strong>8097</strong>，这里我们指定端口2333）。</p>
-</li>
-<li><p>外网访问</p>
-<p>一般公司的服务器在公司的内网中，为了安全性及ip的有限性，每台服务器通过指定端口与外界通信。假设服务器的公网ip为192.168.0.1，对应的端口为8333。这时，我们在浏览器输入<em><a href="http://192.168.0.1:2333" target="_blank" rel="noopener">http://192.168.0.1:2333</a></em>是看不到结果的。我们需要将本地端口通过服务器端口8333，与服务器端口2333进行链接。命令如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 16006:127.0.0.1:2333 -p 8333 account@server.address</span><br></pre></td></tr></table></figure>
-<p>在浏览器输入<em><a href="http://127.0.0.1:16006" target="_blank" rel="noopener">http://127.0.0.1:16006</a></em>即可远程访问visdom。</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1801,7 +1809,7 @@ tie是将两个stream绑定的函数，空参数的话返回当前的输出指�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

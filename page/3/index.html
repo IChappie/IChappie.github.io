@@ -232,6 +232,485 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/12_Implement_strStr()/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/12_Implement_strStr()/" itemprop="url">28. Implement strStr()</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>Implement [strStr()](http://www.cplusplus.com/reference/cstring/strstr/).
+
+Return the index of the first occurrence of needle in haystack, or **-1** if needle is not part of haystack.
+
+**Example 1:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;hello&quot;, needle = &quot;ll&quot;</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+
+**Example 2:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
+
+**Clarification:**
+
+What should we return when `needle` is an empty string? This is a great question to ask during an interview.
+
+For the purpose of this problem, we will return 0 when `needle` is an empty string. This is consistent to C&apos;s [strstr()](http://www.cplusplus.com/reference/cstring/strstr/) and Java&apos;s [indexOf()](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#indexOf(java.lang.String)).
+
+思路：双循环遍历，即可。代码如下。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int strStr(string haystack, string needle) &#123;</span><br><span class="line">        if (needle.size() == 0) return 0;</span><br><span class="line">        if (needle.size() &gt; haystack.size()) return -1;</span><br><span class="line">        </span><br><span class="line">        for (int i = 0; i &lt; haystack.size() - needle.size() + 1; i++) &#123;</span><br><span class="line">            int j = 0;</span><br><span class="line">            for (; j &lt; needle.size(); j++) &#123;</span><br><span class="line">                if ( haystack[i + j] != needle[j])  </span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            if (j == needle.size()) return i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Res. Runtime: 4 ms, Ranking 99.97%.
+
+加上控制输入输出的语句后，Runtime: 0 ms, Ranking 100%
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/9_Remove_Duplicates_from_Sorted_Array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/9_Remove_Duplicates_from_Sorted_Array/" itemprop="url">21. Merge Two Sorted Lists</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+
+**Example:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4</span><br><span class="line">Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</span><br></pre></td></tr></table></figure>
+
+思路：链表的使用，是我的薄弱项～本题的思路是逐个比较，较小的数插入到链表中。可以新建链表，也可以在已有的链表中插入，节省空间，但会破坏源数据。因为新链表不会占用太多空间，选择新建链表。代码如下。**这道题需要重点关注，涉及到链表的一些操作。**网上写法也非常多，参考下。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        ListNode *dummy = new ListNode(-1), *cur = dummy;</span><br><span class="line">        while (l1 &amp;&amp; l2) &#123;</span><br><span class="line">            if (l1-&gt;val &lt; l2-&gt;val) &#123;</span><br><span class="line">                cur-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                cur-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        cur-&gt;next = l1 ? l1 : l2;</span><br><span class="line">        return dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Res. Runtimes: 4ms, Ranking 100.00%
+
+网上其他解法（递归）：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        if (!l1) return l2;</span><br><span class="line">        if (!l2) return l1;</span><br><span class="line">        if (l1-&gt;val &lt; l2-&gt;val) &#123;</span><br><span class="line">            l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);</span><br><span class="line">            return l1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            l2-&gt;next = mergeTwoLists(l1, l2-&gt;next);</span><br><span class="line">            return l2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+更简洁的写法，去掉if从句：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        if (!l1) return l2;</span><br><span class="line">        if (!l2) return l1;</span><br><span class="line">        ListNode *head = l1-&gt;val &lt; l2-&gt;val ? l1 : l2;</span><br><span class="line">        ListNode *nonhead = l1-&gt;val &lt; l2-&gt;val ? l2 : l1;</span><br><span class="line">        head-&gt;next = mergeTwoLists(head-&gt;next, nonhead);</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+丧心病狂的解法，三行搞定！
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        if (!l1 || (l2 &amp;&amp; l1-&gt;val &gt; l2-&gt;val)) swap(l1, l2);</span><br><span class="line">        if (l1) l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);</span><br><span class="line">        return l1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/21_Submission_Detail/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/21_Submission_Detail/" itemprop="url">125. Submission Detail</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
+<p><strong>Note:</strong> For the purpose of this problem, we define empty string as valid palindrome.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;A man, a plan, a canal: Panama&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;race a car&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPalindrome(string s) &#123;</span><br><span class="line">        int left = 0, right = s.size() - 1 ;</span><br><span class="line">        while (left &lt; right) &#123;</span><br><span class="line">            if (!isAlphaNum(s[left])) ++left;</span><br><span class="line">            else if (!isAlphaNum(s[right])) --right;</span><br><span class="line">            else if ((s[left] + 32 - &apos;a&apos;) %32 != (s[right] + 32 - &apos;a&apos;) % 32) return false;</span><br><span class="line">            else &#123;</span><br><span class="line">                ++left; --right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    bool isAlphaNum(char &amp;ch) &#123;</span><br><span class="line">        if (ch &gt;= &apos;a&apos; &amp;&amp; ch &lt;= &apos;z&apos;) return true;</span><br><span class="line">        if (ch &gt;= &apos;A&apos; &amp;&amp; ch &lt;= &apos;Z&apos;) return true;</span><br><span class="line">        if (ch &gt;= &apos;0&apos; &amp;&amp; ch &lt;= &apos;9&apos;) return true;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Res. 4 ms, Ranking 100%</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/16_Add_Binary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -346,6 +825,322 @@ Res. 4ms, Ranking 97.16%.改进的写法，更快了。
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string addBinary(string a, string b) &#123;</span><br><span class="line">        string c;</span><br><span class="line">        int carry = 0, i = a.size()-1, j = b.size()-1;</span><br><span class="line">        while(i&gt;=0 || j&gt;=0 || carry!=0)&#123;</span><br><span class="line">            carry += (i&gt;=0? a[i--]-&apos;0&apos;:0);</span><br><span class="line">            carry += (j&gt;=0? b[j--]-&apos;0&apos;:0);</span><br><span class="line">            c = c + (char)(carry%2+&apos;0&apos;);</span><br><span class="line">            carry /= 2;</span><br><span class="line">        &#125;</span><br><span class="line">        reverse( c.begin(), c.end());</span><br><span class="line">        return c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 Res. 0ms, Ranking 100.100%
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/14_Maximun_Subarry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/14_Maximun_Subarry/" itemprop="url">53. Maximum Subarry</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+
+**Example:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum = 6.</span><br></pre></td></tr></table></figure>
+
+**Follow up:**
+
+If you have figured out the O(*n*) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+
+思路：我将这种问题理解为“金字塔”问题。每一步结果都建立在前面的基础上，但下一步的结果只需要考虑当前与下一位置的结果（如果不输出过程的话）。这种问题只要将打地基的过程想清楚，循环处理即可。这里的打地基为：如果前面的累加和加上当前位置的值大于当前位置的值，则加上当前位置的值，更新累加和，否则丢弃之前的累加和，更新为当前值。代码如下.
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxSubArray(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        </span><br><span class="line">        if (nums.size() == 1) return nums[0];</span><br><span class="line">        </span><br><span class="line">        int res = nums[0];</span><br><span class="line">        int sum = nums[0];</span><br><span class="line">        </span><br><span class="line">        for (int i = 1; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            if (sum &lt; nums[i]) sum = nums[i];</span><br><span class="line">            if (sum &gt; res) res = sum;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Res. 4ms, Ranking 100.00%.
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/22_Single_Number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elvin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静坐听雨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/22_Single_Number/" itemprop="url">136. Single Number</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>Given a **non-empty** array of integers, every element appears *twice* except for one. Find that single one.
+
+**Note:**
+
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+**Example 1:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,2,1]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+
+**Example 2:**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [4,1,2,1,2]</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
+
+思路：今晚有点累， copy～由于数字在计算机是以二进制存储的，每位上都是0或1，如果我们把两个相同的数字异或，0与0异或是0,1与1异或也是0，那么我们会得到0。根据这个特点，我们把数组中所有的数字都异或起来，则每对相同的数字都会得0，然后最后剩下来的数字就是那个只有1次的数字。这个方法确实很赞，但是感觉一般人不会忘异或上想，绝对是为CS专业的同学设计的好题呀，赞一个~~ 
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int singleNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res = 0;</span><br><span class="line">        for (auto num : nums) res ^= num;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Res. 8ms, 98.6%
 </code></pre>
           
         
@@ -558,7 +1353,7 @@ Res. 0ms, Ranking 100.100%. 查了一下最快的算法，如下，采用除余�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/24_Regular_Expression_Matching/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/20_Merge_Sorted_Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -577,7 +1372,7 @@ Res. 0ms, Ranking 100.100%. 查了一下最快的算法，如下，采用除余�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/24_Regular_Expression_Matching/" itemprop="url">10. Regular Expression Matching</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/20_Merge_Sorted_Array/" itemprop="url">88. Merge Sorted Array</a></h1>
         
 
         <div class="post-meta">
@@ -651,367 +1446,22 @@ Res. 0ms, Ranking 100.100%. 查了一下最快的算法，如下，采用除余�
       
         
           
-            <pre><code>Given an input string (`s`) and a pattern (`p`), implement regular expression matching with support for `&apos;.&apos;` and `&apos;*&apos;`.
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;.&apos; Matches any single character.</span><br><span class="line">&apos;*&apos; Matches zero or more of the preceding element.</span><br></pre></td></tr></table></figure>
-
-The matching should cover the **entire** input string (not partial).
+            <pre><code>Given two sorted integer arrays *nums1* and *nums2*, merge *nums2* into *nums1* as one sorted array.
 
 **Note:**
 
-- `s` could be empty and contains only lowercase letters `a-z`.
-- `p` could be empty and contains only lowercase letters `a-z`, and characters like `.` or `*`.
+- The number of elements initialized in *nums1* and *nums2* are *m* and *n* respectively.
+- You may assume that *nums1* has enough space (size that is greater or equal to *m* + *n*) to hold additional elements from *nums2*.
 
-**Example 1:**
+**Example:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a&quot;</span><br><span class="line">Output: false</span><br><span class="line">Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">nums1 = [1,2,3,0,0,0], m = 3</span><br><span class="line">nums2 = [2,5,6],       n = 3</span><br><span class="line"></span><br><span class="line">Output: [1,2,2,3,5,6]</span><br></pre></td></tr></table></figure>
 
-**Example 2:**
+思路：这题看着不难。但是如果遍历处理，边界和条件弄起来都很麻烦，一直有bug，网上找了最简洁的答案，一目了然，从后往前推，巧妙。我采用的是从前往后推，容易出错。
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a*&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &apos;*&apos; means zero or more of the precedeng element, &apos;a&apos;. Therefore, by repeating &apos;a&apos; once, it becomes &quot;aa&quot;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &#123;</span><br><span class="line">        int count = m + n - 1;</span><br><span class="line">        --m; --n;</span><br><span class="line">        while (m &gt;=0 &amp;&amp; n &gt;= 0) nums1[count--] = nums1[m] &gt; nums2[n] ? nums1[m--] : nums2[n--];</span><br><span class="line">        while (n &gt;= 0) nums1[count--] = nums2[n--];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-**Example 3:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;ab&quot;</span><br><span class="line">p = &quot;.*&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.</span><br></pre></td></tr></table></figure>
-
-**Example 4:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aab&quot;</span><br><span class="line">p = &quot;c*a*b&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches &quot;aab&quot;.</span><br></pre></td></tr></table></figure>
-
-**Example 5:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;mississippi&quot;</span><br><span class="line">p = &quot;mis*is*p*.&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-</code></pre><p>这道题有两种方法，一种是动态法，另外一种是递归方法，递归速度比较慢，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isMatch(string s, string p) &#123;</span><br><span class="line">        if (p.empty()) return s.empty();</span><br><span class="line">        if (p.size() == 1) &#123;</span><br><span class="line">            return (s.size() == 1 &amp;&amp; (s[0] == p[0] || p[0] == &apos;.&apos;));</span><br><span class="line">        &#125;</span><br><span class="line">        if (p[1] != &apos;*&apos;) &#123;</span><br><span class="line">            if (s.empty()) return false;</span><br><span class="line">            return (s[0] == p[0] || p[0] == &apos;.&apos;) &amp;&amp; isMatch(s.substr(1), p.substr(1));</span><br><span class="line">        &#125;</span><br><span class="line">        while (!s.empty() &amp;&amp; (s[0] == p[0] || p[0] == &apos;.&apos;)) &#123;</span><br><span class="line">            if (isMatch(s, p.substr(2))) return true;</span><br><span class="line">            s = s.substr(1);</span><br><span class="line">        &#125;</span><br><span class="line">        return isMatch(s, p.substr(2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>4ms， Ranking 27%</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/18_Climbing_Stairs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/18_Climbing_Stairs/" itemprop="url">70. Climbing Stairs</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>You are climbing a stair case. It takes *n* steps to reach to the top.
-
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-
-**Note:** Given *n* will be a positive integer.
-
-**Example 1:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: 2</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: There are two ways to climb to the top.</span><br><span class="line">1. 1 step + 1 step</span><br><span class="line">2. 2 steps</span><br></pre></td></tr></table></figure>
-
-**Example 2:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: 3</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: There are three ways to climb to the top.</span><br><span class="line">1. 1 step + 1 step + 1 step</span><br><span class="line">2. 1 step + 2 steps</span><br><span class="line">3. 2 steps + 1 step</span><br></pre></td></tr></table></figure>
-
-思路：看着很眼熟，斐波那契数列，用递归法做，简单～
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int climbStairs(int n) &#123;</span><br><span class="line">        if (n == 1) return 1;</span><br><span class="line">        if (n == 2) return 2;</span><br><span class="line">        return climbStairs(n - 1) + climbStairs(n - 2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-结果提示超时，网上解释：递归程序太慢，像斐波那契问题，重复计算了很多分支，使用动态规划法填表，提高效率，程序也简单。代码如下：
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int climbStairs(int n)</span><br><span class="line">	&#123;</span><br><span class="line">		vector&lt;int&gt; res(n+1);</span><br><span class="line">		res[0] = 1;</span><br><span class="line">		res[1] = 1;</span><br><span class="line">		for (int i = 2; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			res[i] = res[i-1] + res[i-2];</span><br><span class="line">		&#125;</span><br><span class="line">		return res[n];</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-动态规划法用熟了，高手就需要节省空间，如下：
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int climbStairs2(int n)</span><br><span class="line">	&#123;</span><br><span class="line">		vector&lt;int&gt; res(3);</span><br><span class="line">		res[0] = 1;</span><br><span class="line">		res[1] = 1;</span><br><span class="line">		for (int i = 2; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			res[i%3] = res[(i-1)%3] + res[(i-2)%3];</span><br><span class="line">		&#125;</span><br><span class="line">		return res[n%3];</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-当然，不使用上面的数组也是可以的，直接用三个变量保存结果也是一样的。
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//2014-2-10 update</span><br><span class="line">	int climbStairs(int n)</span><br><span class="line">	&#123;</span><br><span class="line">		if (n &lt; 4) return n;</span><br><span class="line">		int a = 2, b = 3, c = 5;</span><br><span class="line">		for (int i = 5; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			a = c;</span><br><span class="line">			c = b+c;</span><br><span class="line">			b = a;</span><br><span class="line">		&#125;</span><br><span class="line">		return c;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-Res. 0 ms, Ranking 100.100%，效果十分喜人。
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/19_Remove_Duplicates_From_Sorted_List/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/19_Remove_Duplicates_From_Sorted_List/" itemprop="url">83. Remove Duplicates from Sorted List</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>Given a sorted linked list, delete all duplicates such that each element appear only *once*.
-
-**Example 1:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 1-&gt;1-&gt;2</span><br><span class="line">Output: 1-&gt;2</span><br></pre></td></tr></table></figure>
-
-**Example 2:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 1-&gt;1-&gt;2-&gt;3-&gt;3</span><br><span class="line">Output: 1-&gt;2-&gt;3</span><br></pre></td></tr></table></figure>
-
-思路：简单的判断链表是否重复，并删除重复节点。考察的是链表的遍历与删除。
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* deleteDuplicates(ListNode* head) &#123;</span><br><span class="line">        </span><br><span class="line">        if (!head) return head;</span><br><span class="line">        </span><br><span class="line">        ListNode *cur = head;</span><br><span class="line">        </span><br><span class="line">        while (cur-&gt;next) &#123;</span><br><span class="line">            if (cur-&gt;val == cur-&gt;next-&gt;val) &#123;</span><br><span class="line">                ListNode *temp = cur-&gt;next;</span><br><span class="line">                cur-&gt;next = temp-&gt;next;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                cur = cur-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-Res. Runtime: 8ms, Ranking 99.94%
+Res. 4ms, Ranking 99.8%.
 </code></pre>
           
         
@@ -1233,7 +1683,7 @@ Runtime: 8ms, Ranking 61.74%
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/20_Merge_Sorted_Array/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/13_Search_Insert_Position/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elvin">
@@ -1252,7 +1702,7 @@ Runtime: 8ms, Ranking 61.74%
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/20_Merge_Sorted_Array/" itemprop="url">88. Merge Sorted Array</a></h1>
+                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/13_Search_Insert_Position/" itemprop="url">35. Search Insert Position</a></h1>
         
 
         <div class="post-meta">
@@ -1326,512 +1776,35 @@ Runtime: 8ms, Ranking 61.74%
       
         
           
-            <pre><code>Given two sorted integer arrays *nums1* and *nums2*, merge *nums2* into *nums1* as one sorted array.
+            <pre><code>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
-**Note:**
-
-- The number of elements initialized in *nums1* and *nums2* are *m* and *n* respectively.
-- You may assume that *nums1* has enough space (size that is greater or equal to *m* + *n*) to hold additional elements from *nums2*.
-
-**Example:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">nums1 = [1,2,3,0,0,0], m = 3</span><br><span class="line">nums2 = [2,5,6],       n = 3</span><br><span class="line"></span><br><span class="line">Output: [1,2,2,3,5,6]</span><br></pre></td></tr></table></figure>
-
-思路：这题看着不难。但是如果遍历处理，边界和条件弄起来都很麻烦，一直有bug，网上找了最简洁的答案，一目了然，从后往前推，巧妙。我采用的是从前往后推，容易出错。
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &#123;</span><br><span class="line">        int count = m + n - 1;</span><br><span class="line">        --m; --n;</span><br><span class="line">        while (m &gt;=0 &amp;&amp; n &gt;= 0) nums1[count--] = nums1[m] &gt; nums2[n] ? nums1[m--] : nums2[n--];</span><br><span class="line">        while (n &gt;= 0) nums1[count--] = nums2[n--];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-Res. 4ms, Ranking 99.8%.
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/21_Submission_Detail/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/21_Submission_Detail/" itemprop="url">125. Submission Detail</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
-<p><strong>Note:</strong> For the purpose of this problem, we define empty string as valid palindrome.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;A man, a plan, a canal: Panama&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;race a car&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPalindrome(string s) &#123;</span><br><span class="line">        int left = 0, right = s.size() - 1 ;</span><br><span class="line">        while (left &lt; right) &#123;</span><br><span class="line">            if (!isAlphaNum(s[left])) ++left;</span><br><span class="line">            else if (!isAlphaNum(s[right])) --right;</span><br><span class="line">            else if ((s[left] + 32 - &apos;a&apos;) %32 != (s[right] + 32 - &apos;a&apos;) % 32) return false;</span><br><span class="line">            else &#123;</span><br><span class="line">                ++left; --right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    bool isAlphaNum(char &amp;ch) &#123;</span><br><span class="line">        if (ch &gt;= &apos;a&apos; &amp;&amp; ch &lt;= &apos;z&apos;) return true;</span><br><span class="line">        if (ch &gt;= &apos;A&apos; &amp;&amp; ch &lt;= &apos;Z&apos;) return true;</span><br><span class="line">        if (ch &gt;= &apos;0&apos; &amp;&amp; ch &lt;= &apos;9&apos;) return true;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Res. 4 ms, Ranking 100%</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/22_Single_Number/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/22_Single_Number/" itemprop="url">136. Single Number</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T22:13:30+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>Given a **non-empty** array of integers, every element appears *twice* except for one. Find that single one.
-
-**Note:**
-
-Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+You may assume no duplicates in the array.
 
 **Example 1:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,2,1]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 5</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
 
 **Example 2:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [4,1,2,1,2]</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
-
-思路：今晚有点累， copy～由于数字在计算机是以二进制存储的，每位上都是0或1，如果我们把两个相同的数字异或，0与0异或是0,1与1异或也是0，那么我们会得到0。根据这个特点，我们把数组中所有的数字都异或起来，则每对相同的数字都会得0，然后最后剩下来的数字就是那个只有1次的数字。这个方法确实很赞，但是感觉一般人不会忘异或上想，绝对是为CS专业的同学设计的好题呀，赞一个~~ 
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int singleNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res = 0;</span><br><span class="line">        for (auto num : nums) res ^= num;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-Res. 8ms, 98.6%
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/1_leetcode_go/8_Valid_Parentheses/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Elvin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静坐听雨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/11/1_leetcode_go/8_Valid_Parentheses/" itemprop="url">20. Valid Parentheses</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T12:13:30+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>Given a string containing just the characters `&apos;(&apos;`, `&apos;)&apos;`, `&apos;{&apos;`, `&apos;}&apos;`, `&apos;[&apos;` and `&apos;]&apos;`, determine if the input string is valid.
-
-An input string is valid if:
-
-1. Open brackets must be closed by the same type of brackets.
-2. Open brackets must be closed in the correct order.
-
-Note that an empty string is also considered valid.
-
-**Example 1:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;()&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-
-**Example 2:**
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;()[]&#123;&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 2</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
 
 **Example 3:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;(]&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 7</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
 
 **Example 4:**
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;([)]&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,5,6], 0</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
 
-**Example 5:**
+思路：遍历数组，为目标数字找到合适的位置。代码如下：
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;&#123;[]&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">static const auto ___ = []()</span><br><span class="line">&#123;</span><br><span class="line">	ios::sync_with_stdio(false);</span><br><span class="line">	cin.tie(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        </span><br><span class="line">        if (nums.size() == 0) return 0; </span><br><span class="line">        if (nums[nums.size() - 1] &lt; target) return nums.size();</span><br><span class="line">        //if (nums[nums.size() - 1] == target) return nums.size() - 1;</span><br><span class="line">        if (nums[0] &gt;= target) return 0;</span><br><span class="line">        </span><br><span class="line">        for (int i = 0; i &lt; nums.size() - 1; i++) &#123;</span><br><span class="line">            if (nums[i] &lt; target &amp;&amp; nums[i + 1] &gt;= target) return i+1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-思路：建立一个map，将小括号、中括号、大括号的左右分别对应起来。遍历字符串，当遇到右括号时，建立新的循环，向左遍历，如果遍历过，继续向左，否则判断是否为对应的左括号，如果为否，则返回false，如果为是，则遍历flag置为true，结束二级遍历，继续向右进行遍历。当遍历结束，判断遍历flag是否全为true，如果为是，则返回true，否则返回false。代码如下：
+没有加神奇代码时，Runtime 4ms，Ranking 99.8%。采用神奇代码后，Runtime 0ms，Ranking 100%.
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">static int x=[]()&#123;</span><br><span class="line">        std::ios::sync_with_stdio(false);</span><br><span class="line">        cin.tie(NULL);</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;();</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isValid(string s) &#123;</span><br><span class="line">        if(s.length() == 0) return true;</span><br><span class="line">        if(s.length()%2 == 1) return false;</span><br><span class="line">        </span><br><span class="line">        bool arr[s.length()] = &#123;false&#125;;</span><br><span class="line">        map&lt;char, char&gt; mapBrack;</span><br><span class="line">        mapBrack[&apos;)&apos;] = &apos;(&apos;;</span><br><span class="line">        mapBrack[&apos;]&apos;] = &apos;[&apos;;</span><br><span class="line">        mapBrack[&apos;&#125;&apos;] = &apos;&#123;&apos;;</span><br><span class="line">        </span><br><span class="line">        for(int i=1; i&lt;s.length(); i++)&#123;</span><br><span class="line">            if(mapBrack.find(s[i]) != mapBrack.end())&#123;</span><br><span class="line">                arr[i] = true; </span><br><span class="line">                for(int j=i-1; j&gt;=0; j--)&#123;</span><br><span class="line">                    if(arr[j] == true)&#123; continue; &#125; </span><br><span class="line">                    else if(arr[j]==false &amp;&amp; mapBrack[s[i]]==s[j])&#123; arr[j] = true; break; &#125;</span><br><span class="line">                    else&#123; return false; &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        for(int i=0; i&lt;s.length(); i++)&#123;</span><br><span class="line">            if(arr[i]==false) return false;</span><br><span class="line">            else&#123; continue; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return true;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+突然发现可以用二分法来做，能大大的减少时间。看了一下排名第一的算法，也是用二分法，可能测试用例太少的原因，没有跟其他算法区分开。代码如下. copy~~~~
 
-Res. Runtimes: 8ms, Ranking 3.90%.
-
-Why？ 这么靠后？一定有更好的解法。。。看到排名第一的解法，原来是使用栈啊，先进后出，搜嘎。代码如下：
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isValid(string s) &#123;</span><br><span class="line">        if (s.size() == 0) return true;</span><br><span class="line">        if (s.size() % 2 == 1) return false;</span><br><span class="line">        </span><br><span class="line">        stack&lt;int&gt; stk;</span><br><span class="line">        map&lt;char, char&gt; mapBrack;</span><br><span class="line">        int i = 0;</span><br><span class="line">        mapBrack[&apos;)&apos;] = &apos;(&apos;;</span><br><span class="line">        mapBrack[&apos;]&apos;] = &apos;[&apos;;</span><br><span class="line">        mapBrack[&apos;&#125;&apos;] = &apos;&#123;&apos;;</span><br><span class="line">        </span><br><span class="line">        while (i &lt; s.size()) &#123;</span><br><span class="line">            if (mapBrack.find(s[i]) != mapBrack.end()) &#123;</span><br><span class="line">                if (!stk.empty() &amp;&amp; stk.top() == mapBrack[s[i]]) &#123;</span><br><span class="line">                    stk.pop();</span><br><span class="line">                    i++;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                stk.push(s[i]);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (!stk.empty()) return false;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-Res. Runtime: 0 ms,  Ranking 100%。 数据结构很重要啊！
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">static const auto ___ = []()</span><br><span class="line">&#123;</span><br><span class="line">	ios::sync_with_stdio(false);</span><br><span class="line">	cin.tie(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;();</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        if (nums.size() == 0) return 0;</span><br><span class="line">        </span><br><span class="line">        int x = 0;</span><br><span class="line">        int y = nums.size();</span><br><span class="line">        int mid = (x+y)/2;</span><br><span class="line">        </span><br><span class="line">                </span><br><span class="line">        if (nums[x] &gt; target) return 0;</span><br><span class="line">        </span><br><span class="line">        if (nums[y-1] &lt; target) return y;</span><br><span class="line">        </span><br><span class="line">        while(x &lt;= y) &#123;</span><br><span class="line">            if (nums[mid] == target) return mid;</span><br><span class="line">            </span><br><span class="line">            if (nums[mid] &lt; target) x = mid + 1;</span><br><span class="line">            </span><br><span class="line">            if (nums[mid] &gt; target) y = mid - 1;          </span><br><span class="line">            </span><br><span class="line">            mid = (x+y)/2;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </code></pre>
           
         
@@ -1921,7 +1894,7 @@ Res. Runtime: 0 ms,  Ranking 100%。 数据结构很重要啊！
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
